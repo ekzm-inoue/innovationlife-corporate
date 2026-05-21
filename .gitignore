@@ -1,0 +1,21 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node / build artifacts (将来 npm を使う場合に備えて)
+node_modules/
+dist/
+build/
+
+# Logs
+*.log
+
+# Design bundle (再ダウンロード用、リポジトリには含めない)
+design.tar.gz

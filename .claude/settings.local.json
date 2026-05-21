@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "PowerShell(gh --version)",
+      "WebFetch(domain:api.anthropic.com)",
+      "Bash(curl -sI \"https://api.anthropic.com/v1/design/h/6OfzwyQUNNVvzuy-hE9KgQ\")",
+      "Bash(curl -s -o /tmp/design_response.txt -w \"HTTP: %{http_code}\\\\nSize: %{size_download} bytes\\\\nContent-Type: %{content_type}\\\\n\" \"https://api.anthropic.com/v1/design/h/6OfzwyQUNNVvzuy-hE9KgQ\")",
+      "Bash(curl -s -L -o design.tar.gz \"https://api.anthropic.com/v1/design/h/6OfzwyQUNNVvzuy-hE9KgQ\")",
+      "Bash(tar -tzf design.tar.gz)",
+      "Bash(tar -xzf design.tar.gz)",
+      "Bash(git config *)",
+      "Bash(git add *)"
+    ]
+  }
+}
