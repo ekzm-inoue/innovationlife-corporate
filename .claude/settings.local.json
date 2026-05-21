@@ -10,7 +10,8 @@
       "Bash(tar -tzf design.tar.gz)",
       "Bash(tar -xzf design.tar.gz)",
       "Bash(git config *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git mv *)"
     ]
   }
 }
