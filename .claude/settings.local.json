@@ -11,7 +11,10 @@
       "Bash(tar -xzf design.tar.gz)",
       "Bash(git config *)",
       "Bash(git add *)",
-      "Bash(git mv *)"
+      "Bash(git mv *)",
+      "Bash(gh repo *)",
+      "Bash(git commit -m '公開用に再構成：パスワードゲート復活 *)",
+      "Bash(git push *)"
     ]
   }
 }
