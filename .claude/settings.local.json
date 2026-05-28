@@ -14,7 +14,21 @@
       "Bash(git mv *)",
       "Bash(gh repo *)",
       "Bash(git commit -m '公開用に再構成：パスワードゲート復活 *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(curl -s -o /dev/null -w \"site: HTTP %{http_code}\\\\n\" \"https://ekzm-inoue.github.io/innovationlife-corporate/\")",
+      "Bash(curl -s -o /dev/null -w \"gate: HTTP %{http_code}\\\\n\" \"https://ekzm-inoue.github.io/innovationlife-corporate/password-gate.js\")",
+      "Bash(git checkout *)",
+      "Bash(mkdir -p /tmp/new-design)",
+      "Bash(curl -s -L -o /tmp/new-design/design.tar.gz \"https://api.anthropic.com/v1/design/h/tTXgRKA5eHngvBqsmnU-Kw\")",
+      "Read(//tmp/**)",
+      "Bash(cp /tmp/new-design/untitled/project/innovation-life/*.html .)",
+      "Bash(cp /tmp/new-design/untitled/project/innovation-life/*.jsx .)",
+      "Bash(cp /tmp/new-design/untitled/project/innovation-life/*.js .)",
+      "Bash(cp -r /tmp/new-design/untitled/project/innovation-life/styles/. styles/)",
+      "Bash(cp -r /tmp/new-design/untitled/project/innovation-life/assets/. assets/)",
+      "Bash(curl -s -o /dev/null -w \"index: %{http_code}\\\\n\" http://localhost:8765/)",
+      "Bash(curl -s -o /dev/null -w \"minpaku: %{http_code}\\\\n\" http://localhost:8765/minpaku.html)",
+      "Bash(curl -s -o /dev/null -w \"gate: %{http_code}\\\\n\" http://localhost:8765/password-gate.js)"
     ]
   }
 }

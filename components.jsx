@@ -230,7 +230,7 @@ function ILTargets({ layout = 'cards' }) {
         <div className="il-section-head">
           <p className="il-eyebrow">FOR YOUR INDUSTRY</p>
           <h2 className="il-h-section">
-            目的に合わせた、<em>3つの入口</em>からご案内します。
+            目的に合わせた、<em>4つの入口</em>からご案内します。
           </h2>
           <p className="il-section-lede">
             イノベーションライフは、家具メーカー様・工務店様・個人のお客様、それぞれの視点に立ったサービスをご用意しています。お立場に合わせて、最適なご提案をお届けいたします。
@@ -243,7 +243,7 @@ function ILTargets({ layout = 'cards' }) {
                 className="il-target-card__image"
                 style={{ backgroundImage: `url(${t.image})` }}
               >
-                <span className="il-target-card__num">{t.num} / 03</span>
+                <span className="il-target-card__num">{t.num} / 04</span>
                 <span className="il-target-card__overlay">{t.overlay}</span>
               </div>
               <div className="il-target-card__body">
@@ -609,6 +609,7 @@ function ILFooter() {
                 <li><a href="kaguraku.html">カグラク（個人のお客様）</a></li>
                 <li><a href="furnituremakers.html">家具メーカーの方へ</a></li>
                 <li><a href="builders.html">工務店の方へ</a></li>
+                <li><a href="minpaku.html">民泊業者の方へ</a></li>
               </ul>
             </div>
             <div className="il-footer__col">

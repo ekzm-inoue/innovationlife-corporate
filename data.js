@@ -68,6 +68,21 @@ window.IL_DATA = {
     },
     {
       num: '03',
+      audience: 'FOR VACATION RENTALS',
+      titleHtml: '<em>民泊業者</em>の方へ',
+      lede: '家具の選定・調達から、一括配送・組み立て、既存家具の撤去まで。集客と収益の両面を最大化する民泊専用の空間プロデュースを、ワンストップでご提供いたします。',
+      points: [
+        'ワンストップで空間まるごとプロデュース',
+        '集客に直結する「写真映え」設計',
+        'バンクベッド等で収容人数を最大化',
+      ],
+      cta: '民泊業者様向けサービスを見る',
+      href: 'minpaku.html',
+      image: 'assets/item_living_table.png',
+      overlay: 'FOR RENTALS',
+    },
+    {
+      num: '04',
       audience: 'FOR INDIVIDUALS',
       titleHtml: '<em>個人</em>のお客様へ',
       lede: 'インテリア提案サービス「カグラク」では、LINEから気軽にご相談いただけます。理想の空間づくりを、プロのコーディネーターがトータルでサポート。',
@@ -239,6 +254,7 @@ window.IL_DATA = {
       children: [
         { label: 'ハウスメーカー・工務店の方へ', href: 'builders.html', eyebrow: 'FOR BUILDERS' },
         { label: '家具メーカーの方へ',         href: 'furnituremakers.html', eyebrow: 'FOR FURNITUREMAKERS' },
+        { label: '民泊業者の方へ',             href: 'minpaku.html',         eyebrow: 'FOR VACATION RENTALS' },
         { label: '個人の方へ（カグラク）',     href: 'kaguraku.html', eyebrow: 'FOR INDIVIDUALS' },
       ],
     },
