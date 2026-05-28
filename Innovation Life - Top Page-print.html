@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<script src="password-gate.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>イノベーションライフ株式会社 ｜ Print</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="styles/tokens.css" />
+<link rel="stylesheet" href="styles/overrides.css" />
+
+<style>
+  /* Force pixel-accurate width for print (avoids breakpoint shuffling) */
+  html, body { width: 1280px; margin: 0; padding: 0; }
+  body { background: var(--il-cream, #F6F1E8); }
+
+  /* Force colors and disable motion */
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+
+  /* Hide chrome that doesn't make sense in print */
+  .il-header, .il-mobile-nav, .twk-panel, .twk-button, .twk-fab, .il-hero__scroll {
+    display: none !important;
+  }
+
+  /* Hero: clamp height; show only first slide */
+  .il-hero { position: relative !important; height: 980px !important; min-height: 980px !important; }
+  .il-hero__slide:not(.is-active) { display: none !important; }
+
+  /* Marquee: stop animation, show fixed line */
+  .il-marquee__track { animation: none !important; transform: none !important; }
+
+  @page { size: 1280px 1810px; margin: 0; }
+  @media print {
+    section, .il-feature, .il-case, .il-target-card,
+    .il-company, .il-news-item, .il-faq-item,
+    .il-dual-cta__inner, footer.il-footer {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+  }
+</style>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="data.js"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="components.jsx"></script>
+<script type="text/babel" src="app.jsx"></script>
+
+<script type="text/babel">
+// Wait for fonts + Babel to finish + a safety delay, then trigger print.
+(function () {
+  function whenReady() {
+    const fontsReady = (document.fonts && document.fonts.ready) || Promise.resolve();
+    // Wait for images to load too
+    const imgs = Array.from(document.images || []);
+    const imgPromises = imgs.map((img) => {
+      if (img.complete && img.naturalHeight !== 0) return Promise.resolve();
+      return new Promise((res) => {
+        img.addEventListener('load', res, { once: true });
+        img.addEventListener('error', res, { once: true });
+      });
+    });
+    Promise.all([fontsReady, ...imgPromises]).then(() => {
+      setTimeout(() => window.print(), 1200);
+    });
+  }
+  if (document.readyState === 'complete') whenReady();
+  else window.addEventListener('load', whenReady);
+})();
+</script>
+</body>
+</html>
