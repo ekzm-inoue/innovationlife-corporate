@@ -4,7 +4,7 @@
 // ============================================================
 
 const PRIVACY = {
-  heroImage: 'assets/hero_living_planning.png',
+  heroImage: 'assets/privacy_hero.png',
   heroTitleJa: 'プライバシーポリシー（個人情報保護方針）',
 
   intro:

@@ -1409,30 +1409,41 @@ html, body { background: var(--il-cream); color: var(--il-ink); }
 .il-footer__social-link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 14px;
-  background: rgba(246, 241, 232, 0.06);
-  border: 1px solid rgba(246, 241, 232, 0.16);
-  color: rgba(246, 241, 232, 0.85);
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: transparent;
+  border: 0;
   text-decoration: none;
-  transition: all 240ms cubic-bezier(.22,.61,.36,1);
+  transition: transform 240ms cubic-bezier(.22,.61,.36,1), opacity 240ms cubic-bezier(.22,.61,.36,1);
 }
 .il-footer__social-link:hover {
-  background: rgba(246, 241, 232, 0.12);
-  border-color: rgba(246, 241, 232, 0.4);
-  color: var(--il-cream);
   transform: translateY(-2px);
+  opacity: 0.85;
 }
+.il-footer__social-link img,
+.il-footer__social-link .il-ig-glyph {
+  width: 30px;
+  height: 30px;
+  display: block;
+  object-fit: contain;
+}
+.il-footer__social-link .il-ig-glyph { line-height: 0; }
 .il-footer__social-link svg {
   flex-shrink: 0;
   display: block;
 }
 .il-footer__social-label {
-  font-family: "Cormorant Garamond", serif;
-  font-style: italic;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }
 .il-footer__sitemap {
   display: grid;
@@ -1485,13 +1496,12 @@ html, body { background: var(--il-cream); color: var(--il-ink); }
   padding: 40px 0;
 }
 .il-partners img {
-  height: 32px;
+  height: 34px;
   width: auto;
-  opacity: 0.55;
-  filter: grayscale(100%);
+  opacity: 1;
   transition: opacity 240ms cubic-bezier(.22,.61,.36,1);
 }
-.il-partners img:hover { opacity: 0.9; }
+.il-partners img:hover { opacity: 0.7; }
 
 /* ---------- Big-mark scroller ---------- */
 .il-marquee {

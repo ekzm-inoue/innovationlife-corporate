@@ -4,7 +4,7 @@
 // ============================================================
 
 const BUILDERS = {
-  heroImage: 'assets/hero_furniture_design.png',
+  heroImage: 'assets/builders_hero.png',
   heroTitleEn: 'For Builders',
   heroTitleJa: 'ハウスメーカー・工務店の方へ',
 
@@ -20,14 +20,14 @@ const BUILDERS = {
       eyebrow: 'SERVICE & PROMOTION',
       title: ['サービス向上と', { em: '販促サポート' }],
       body: '住宅に加え、ライフスタイルの提案が可能となります。コーディネートされた魅力的な事例写真は、施主様へのご提案資料や、貴社の販促物・SNSにもご活用いただけます。',
-      image: 'assets/hero_living_planning.png',
+      image: 'assets/builders_f1_living.png',
     },
     {
       num: '02',
       eyebrow: 'ONE-STOP COORDINATION',
       title: ['インテリア提案から家具設置まで、', { em: '一気通貫' }],
       body: '家具業界の専門家がサポートいたします。家具購入のノウハウも、社内にインテリアコーディネーターを抱える必要もありません。煩雑な選定・発注・納品・設置までを、当社が一括でお引き受けいたします。',
-      image: 'assets/flow_delivery.png',
+      image: 'assets/builders_f2_plan.png',
       reverse: true,
     },
     {
@@ -35,14 +35,14 @@ const BUILDERS = {
       eyebrow: 'ONLINE MEETING',
       title: ['オンライン対応で', { em: '集客強化' }],
       body: '申込みから納品まで、大部分がオンラインで完結いたします。顧客のネット利用率の高まりに対応し、遠方の施主様や共働き世帯にもご案内しやすく、顧客層拡大が見込めます。',
-      image: 'assets/flow_meeting.png',
+      image: 'assets/builders_f3_tablet.png',
     },
     {
       num: '04',
       eyebrow: 'BOOST PURCHASE INTENT',
       title: ['住宅購入の', { em: '決め手' }, 'を後押し'],
       body: '住宅購入時のオプションとして、家具インテリアまでの包括的なサービスを施主様にご提案可能です。施主様に理想の空間での生活を想像いただくことで、住宅の購入意欲を高めます。',
-      image: 'assets/flow_hearing.png',
+      image: 'assets/builders_f4_consult.png',
       reverse: true,
     },
   ],

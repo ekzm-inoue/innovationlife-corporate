@@ -4,11 +4,11 @@
 // ============================================================
 
 const FAQ_DATA = {
-  heroImage: 'assets/item_sofa.png',
+  heroImage: 'assets/faq_hero.png',
   heroTitleEn: 'FAQ',
   heroTitleJa: 'よくあるご質問',
 
-  intro: '個人のお客様・工務店様・家具メーカー様、それぞれのお立場からよくいただくご質問にお答えします。掲載のない内容は、お気軽にお問い合わせくださいませ。',
+  intro: '皆さまからよくいただくご質問にお答えします。掲載のない内容は、お気軽にお問い合わせくださいませ。',
 
   groups: [
     {
@@ -141,7 +141,7 @@ function FaqIntro() {
         <div>
           <p className="il-builder-lead__eyebrow">FREQUENTLY ASKED</p>
           <h2 className="il-builder-lead__title">
-            お立場に合わせて、<em>3つの</em>カテゴリに分けてご案内します。
+            よくあるご質問に、<em>お答えします</em>。
           </h2>
         </div>
         <div>
@@ -203,23 +203,19 @@ function FaqCTA() {
     <section className="il-dual-cta">
       <div className="il-dual-cta__inner">
         <div className="il-dual-cta__col">
-          <p className="il-dual-cta__col-eyebrow">CONTACT</p>
-          <h3 className="il-dual-cta__col-title">
-            気になることがございましたら<br/>お気軽にお問い合わせください
-          </h3>
-          <a className="il-btn il-btn--ghost-inv" href="index.html#contact">
-            お問い合わせフォーム
+          <p className="il-dual-cta__col-eyebrow">FAQ</p>
+          <h3 className="il-dual-cta__col-title">よくあるご質問</h3>
+          <a className="il-btn il-btn--ghost-inv" href="faq.html">
+            よくあるご質問を見る
             <span className="il-arrow"></span>
           </a>
         </div>
         <div className="il-dual-cta__rule"></div>
         <div className="il-dual-cta__col">
-          <p className="il-dual-cta__col-eyebrow">COMPANY</p>
-          <h3 className="il-dual-cta__col-title">
-            イノベーションライフ<br/>会社情報をご覧ください
-          </h3>
-          <a className="il-btn il-btn--ghost-inv" href="company.html">
-            会社情報を見る
+          <p className="il-dual-cta__col-eyebrow">CONTACT</p>
+          <h3 className="il-dual-cta__col-title">お問い合わせ</h3>
+          <a className="il-btn il-btn--ghost-inv" href="index.html#contact">
+            お問い合わせフォーム
             <span className="il-arrow"></span>
           </a>
         </div>

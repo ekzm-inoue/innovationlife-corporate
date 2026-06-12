@@ -4,7 +4,7 @@
 // ============================================================
 
 const CASE_LIST = {
-  heroImage: 'assets/hero_living_planning.png',
+  heroImage: 'assets/case_hero.png',
   heroTitleEn: 'Case Studies',
   heroTitleJa: '事例紹介',
 

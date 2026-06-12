@@ -4,7 +4,7 @@
 // ============================================================
 
 const NEWS_DATA = {
-  heroImage: 'assets/hero_furniture_design.png',
+  heroImage: 'assets/news_hero.png',
   heroTitleJa: 'お知らせ・ブログ',
 
   intro:
@@ -53,7 +53,7 @@ function NewsHero() {
     >
       <div className="il-page-hero__inner">
         <p className="il-page-hero__eyebrow">INNOVATION LIFE INC.</p>
-        <h1 className="il-page-hero__title">News&nbsp;&amp;&nbsp;Stories</h1>
+        <h1 className="il-page-hero__title">News&nbsp;&amp;&nbsp;Blogs</h1>
         <div className="il-page-hero__rule"></div>
         <div style={{ marginTop: 24 }}>
           <span className="il-page-hero__title-ja">{NEWS_DATA.heroTitleJa}</span>
@@ -80,7 +80,7 @@ function NewsIntro() {
     <section className="il-section--paper" style={{ borderBottom: '1px solid var(--il-linen)' }}>
       <div className="il-builder-lead">
         <div>
-          <p className="il-builder-lead__eyebrow">NEWS & STORIES</p>
+          <p className="il-builder-lead__eyebrow">NEWS & BLOGS</p>
           <h2 className="il-builder-lead__title">
             私たちの<em>日々の活動</em>と、暮らしのヒントを。
           </h2>

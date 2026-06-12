@@ -4,7 +4,7 @@
 // ============================================================
 
 const KAGURAKU = {
-  heroBg: 'assets/hero_living_planning.png',
+  heroBg: 'assets/kg_hero.png',
   heroBrandLabel: 'BRAND ／ KAGURAKU',
   heroTitleHtml:
     'インテリア提案から家具の購入・設置まで<br/><em>ワンストップ</em>でカグラクにお任せ。',
@@ -29,9 +29,9 @@ const KAGURAKU = {
   galleryLede:
     'お忙しい毎日の中で、家具・カーテン・照明をひとつずつ選ぶのは大変なものです。カグラクが、ご相談から設計、購入、配送、設置までをワンストップでサポートいたします。',
   galleryImages: [
-    'assets/hero_living_planning.png',
-    'assets/hero_furniture_design.png',
-    'assets/item_sofa.png',
+    'assets/kg_gallery1.png',
+    'assets/kg_gallery2.png',
+    'assets/kg_gallery3.png',
   ],
 
   // About / 3 checks
@@ -50,23 +50,23 @@ const KAGURAKU = {
     {
       title: 'インテリアコーディネーターの知見をフル活用。理想の空間づくりを実現します。',
       body: 'これまで多くの住宅・空間を手がけてきたインテリアコーディネーターが、お客様の暮らしを丁寧にヒアリングし、最適なご提案をいたします。お客様のライフスタイルに寄り添う、上質な空間づくりをお約束します。',
-      image: 'assets/flow_meeting.png',
+      image: 'assets/kg_feature1.png',
     },
     {
       title: 'オーダーメイド家具も活用！多種多様なアイテムであなたに最適な空間をご提案。',
       body: '提携家具メーカーとの連携により、規格品から造作・オーダーメイドまで、幅広いアイテムをコーディネートに組み込めます。お部屋にぴったり収まる、世界に一つの組み合わせをご提供いたします。',
-      image: 'assets/item_dining.png',
+      image: 'assets/kg_feature2.png',
     },
     {
       title: '複雑な手配なども肩代わり。予算面のお気軽お問い合わせ。',
       body: 'お見積もり・ご発注・物流・設置・アフターメンテナンスまで、お客様の代わりに当社が一括で手配いたします。気になる予算面についても、お気軽にご相談ください。',
-      image: 'assets/flow_delivery.png',
+      image: 'assets/kg_feature3.png',
     },
   ],
 
   // Coordinator
   coord: {
-    portrait: 'assets/portrait_matsuoka.png',
+    portrait: 'assets/kg_coord_photo.jpg',
     name: '松岡 公恵',
     role: 'INTERIOR COORDINATOR',
     body: [
@@ -82,18 +82,18 @@ const KAGURAKU = {
 
   // Furniture categories
   categories: [
-    { name: 'ソファ',            image: 'assets/item_sofa.png' },
+    { name: 'ソファ',            image: 'assets/kg_cat_sofa.png' },
     { name: 'リビングテーブル',  image: 'assets/item_living_table.png' },
-    { name: 'テレビボード',      image: 'assets/item_tv_board.png' },
-    { name: 'チェア',            image: 'assets/item_chair.png' },
+    { name: 'テレビボード',      image: 'assets/kg_cat_tvboard.png' },
+    { name: 'チェア',            image: 'assets/kg_cat_chair.png' },
     { name: 'キッチン収納',      image: 'assets/item_kitchen_storage.png' },
-    { name: 'ダイニング',        image: 'assets/item_dining.png' },
+    { name: 'ダイニング',        image: 'assets/kg_cat_dining.png' },
     { name: 'デスク',            image: 'assets/item_desk.png' },
-    { name: 'シェルフ',          image: 'assets/item_shelf.png' },
+    { name: 'シェルフ',          image: 'assets/kg_cat_shelf.png' },
     { name: '照明',              image: 'assets/item_lighting.png' },
-    { name: 'ラグ',              image: 'assets/item_rug.png' },
-    { name: '時計',              image: 'assets/item_clock.png' },
-    { name: '雑貨',              image: 'assets/item_zakka.png' },
+    { name: 'ラグ',              image: 'assets/kg_cat_rug.png' },
+    { name: '時計',              image: 'assets/kg_cat_clock.png' },
+    { name: '雑貨',              image: 'assets/kg_cat_zakka.png' },
   ],
 
   brands: [
@@ -112,31 +112,31 @@ const KAGURAKU = {
       num: '01',
       title: 'ヒアリング',
       body: 'LINEもしくはオンラインで、お好みのテイストやライフスタイルに関する情報をしっかりとヒアリングいたします。お客様の暮らしに寄り添うインテリア提案の起点です。',
-      image: 'assets/flow_hearing.png',
+      image: 'assets/kg_flow1.png',
     },
     {
       num: '02',
       title: 'コーディネートプランのご提案',
       body: 'ヒアリング内容をもとに、インテリアコーディネーターがプランをご提案。家具・照明・カーテンの組み合わせ、レイアウトまで、具体的な完成イメージをお見せします。',
-      image: 'assets/flow_meeting.png',
+      image: 'assets/kg_flow2.png',
     },
     {
       num: '03',
       title: '詳細打ち合わせ・修正',
       body: 'ご提案内容についてご意見・ご要望をヒアリングし、最適なプランへブラッシュアップしてまいります。納得いただけるまで、丁寧にやり取りいたします。',
-      image: 'assets/flow_proposal.png',
+      image: 'assets/kg_flow3.png',
     },
     {
       num: '04',
       title: 'お申込み・お支払い',
       body: 'プランが確定しましたら、お見積もり・ご発注のお手続きをご案内します。お支払い方法・納品日についても、こちらでご相談させていただきます。',
-      image: 'assets/flow_signing.png',
+      image: 'assets/kg_flow4.png',
     },
     {
       num: '05',
       title: '配送・搬入',
       body: '当社指定の物流・設置パートナーが、お客様のご自宅まで一括でお届け・組立を行います。お引っ越し当日からすぐに、整った暮らしをお楽しみいただけます。',
-      image: 'assets/flow_delivery.png',
+      image: 'assets/kg_flow5.png',
     },
   ],
 };

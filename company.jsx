@@ -3,7 +3,7 @@
 // ============================================================
 
 const COMPANY = {
-  heroImage: 'assets/hero_living_planning.png',
+  heroImage: 'assets/company_hero.png',
   heroTitleJa: '会社情報',
 
   lead: '工務店・戸建て住宅施主・インテリアコーディネーター・家具インテリアメーカーをつなぐオンラインプラットフォーム『カグラク』を運営し、新築住宅に理想の空間を提供・実現します。',
@@ -206,59 +206,11 @@ function FulGroup() {
         </div>
 
         <div className="il-group__diagram">
-          {/* DtoC ── left */}
-          <div className="il-group__side il-group__side--left">
-            <p className="il-group__side-label">
-              DtoC 事業
-              <small>D2C</small>
-            </p>
-            <div className="il-group__side-chips">
-              <div className="il-group__chip">
-                <div className="il-group__chip-text">
-                  FUR<span style={{ fontSize: 12, letterSpacing: '0.1em' }}>ne</span>TURE
-                </div>
-              </div>
-              <div className="il-group__chip">
-                <div className="il-group__chip-text">
-                  SESAME
-                  <span className="ja">暮らしを開く鍵</span>
-                </div>
-              </div>
-            </div>
-            <p className="il-group__side-caption">
-              家具の企画開発から販売までを<br/>一気通貫で行う
-            </p>
-          </div>
-
-          {/* 4FUL center */}
-          <div className="il-group__center">
-            <div className="il-group__center-chip">
-              <img src="assets/logo_4ful.png" alt="4FUL" />
-            </div>
-            <span className="il-group__center-caption">家具の製造・卸売</span>
-          </div>
-
-          {/* Platform ── right */}
-          <div className="il-group__side il-group__side--right">
-            <p className="il-group__side-label">
-              プラットフォーム事業
-              <small>PLATFORM</small>
-            </p>
-            <div className="il-group__side-chips">
-              <div className="il-group__chip">
-                <div className="il-group__chip-text">
-                  FAITH
-                  <span className="ja">フェイス</span>
-                </div>
-              </div>
-              <div className="il-group__chip">
-                <img src="assets/kaguraku_logo.png" alt="カグラク" />
-              </div>
-            </div>
-            <p className="il-group__side-caption">
-              家具市場と住宅市場を融合し<br/>ビジネスを拡大する
-            </p>
-          </div>
+          <img
+            src="assets/business_diagram.webp"
+            alt="4FULグループの事業構造図：DtoC事業（FURneTURE・SESAME）、4FUL（家具の製造・卸売）、プラットフォーム事業（FAITH・カグラク）"
+            style={{ display: 'block', width: '100%', maxWidth: 1080, height: 'auto', margin: '0 auto', gridColumn: '1 / -1', justifySelf: 'center' }}
+          />
         </div>
 
         <p className="il-group__desc">

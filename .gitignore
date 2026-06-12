@@ -19,3 +19,4 @@ build/
 
 # Design bundle (再ダウンロード用、リポジトリには含めない)
 design.tar.gz
+temp-design/

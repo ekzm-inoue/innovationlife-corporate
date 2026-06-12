@@ -28,7 +28,22 @@
       "Bash(cp -r /tmp/new-design/untitled/project/innovation-life/assets/. assets/)",
       "Bash(curl -s -o /dev/null -w \"index: %{http_code}\\\\n\" http://localhost:8765/)",
       "Bash(curl -s -o /dev/null -w \"minpaku: %{http_code}\\\\n\" http://localhost:8765/minpaku.html)",
-      "Bash(curl -s -o /dev/null -w \"gate: %{http_code}\\\\n\" http://localhost:8765/password-gate.js)"
+      "Bash(curl -s -o /dev/null -w \"gate: %{http_code}\\\\n\" http://localhost:8765/password-gate.js)",
+      "WebFetch(domain:fushimi-port-park.jp)",
+      "WebFetch(domain:tsutaeru.cloud)",
+      "WebFetch(domain:shutto-translation.com)",
+      "WebFetch(domain:www.submit.ne.jp)",
+      "WebFetch(domain:prtimes.jp)",
+      "WebFetch(domain:alfasado.net)",
+      "WebFetch(domain:shutto-honyaku.com)",
+      "WebFetch(domain:www.itreview.jp)",
+      "Bash(mkdir -p /tmp/new-design2)",
+      "Bash(grep -v \"\\\\.bat$\")",
+      "Bash(cp temp-design/untitled/project/innovation-life/*.html .)",
+      "Bash(cp temp-design/untitled/project/innovation-life/*.jsx .)",
+      "Bash(cp temp-design/untitled/project/innovation-life/*.js .)",
+      "Bash(cp -r temp-design/untitled/project/innovation-life/styles/. styles/)",
+      "Bash(cp -r temp-design/untitled/project/innovation-life/assets/. assets/)"
     ]
   }
 }

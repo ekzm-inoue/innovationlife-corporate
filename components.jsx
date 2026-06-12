@@ -145,59 +145,27 @@ function ILHeader() {
 }
 
 // ---------- Hero ----------
-function ILHero({ auto = true }) {
-  const [idx, setIdx] = React.useState(0);
-  const slides = D.hero.slides;
-
-  React.useEffect(() => {
-    if (!auto) return;
-    const t = setInterval(() => setIdx((i) => (i + 1) % slides.length), 6500);
-    return () => clearInterval(t);
-  }, [slides.length, auto]);
-
-  const slide = slides[idx];
+function ILHero() {
+  const slide = D.hero.slides[0];
 
   return (
     <section id="top" className="il-hero">
-      {slides.map((s, i) => (
-        <div
-          key={i}
-          className={`il-hero__slide ${i === idx ? 'is-active' : ''}`}
-          style={{ backgroundImage: `url(${s.image})` }}
-          aria-hidden={i !== idx}
-        />
-      ))}
+      <div
+        className="il-hero__slide is-active"
+        style={{ backgroundImage: `url(${slide.image})` }}
+        role="img"
+        aria-label={slide.alt || ''}
+      />
       <div className="il-hero__content">
         <div className="il-hero__inner">
           <div>
-            <div className="il-hero__chip">
-              <span></span>
-              {slide.category}
-            </div>
             <h1
               className="il-hero__title"
-              style={{ marginTop: 28 }}
               dangerouslySetInnerHTML={{ __html: slide.titleHtml }}
             />
           </div>
           <div className="il-hero__rail">
             <p className="il-hero__sub">{slide.sub}</p>
-            <div className="il-hero__progress">
-              {slides.map((s, i) => (
-                <button
-                  key={i}
-                  className={i === idx ? 'is-active' : ''}
-                  onClick={() => setIdx(i)}
-                  aria-label={`Slide ${i + 1}`}
-                >
-                  {String(i + 1).padStart(2, '0')}
-                </button>
-              ))}
-            </div>
-            <a className="il-btn il-btn--primary" href="#services">
-              事業を知る
-              <span className="il-arrow"></span>
-            </a>
           </div>
         </div>
       </div>
@@ -228,12 +196,12 @@ function ILTargets({ layout = 'cards' }) {
     <section id="services" className="il-section il-section--paper">
       <div className="il-container">
         <div className="il-section-head">
-          <p className="il-eyebrow">FOR YOUR INDUSTRY</p>
+          <p className="il-eyebrow">BEYOND BUILDING A HOME</p>
           <h2 className="il-h-section">
-            目的に合わせた、<em>4つの入口</em>からご案内します。
+            家づくりに<em>+α</em>の価値を。
           </h2>
           <p className="il-section-lede">
-            イノベーションライフは、家具メーカー様・工務店様・個人のお客様、それぞれの視点に立ったサービスをご用意しています。お立場に合わせて、最適なご提案をお届けいたします。
+            カグラクが誇るインテリアコーディネーターが、家具の選定から設置まで一括サポート。<br/>日々の暮らしを彩るインテリアを提案します。
           </p>
         </div>
         <div className="il-targets" data-layout={layout}>
@@ -243,8 +211,6 @@ function ILTargets({ layout = 'cards' }) {
                 className="il-target-card__image"
                 style={{ backgroundImage: `url(${t.image})` }}
               >
-                <span className="il-target-card__num">{t.num} / 04</span>
-                <span className="il-target-card__overlay">{t.overlay}</span>
               </div>
               <div className="il-target-card__body">
                 <p className="il-eyebrow il-eyebrow--quiet" style={{ marginBottom: 14 }}>
@@ -255,9 +221,6 @@ function ILTargets({ layout = 'cards' }) {
                   dangerouslySetInnerHTML={{ __html: t.titleHtml }}
                 />
                 <p className="il-target-card__lede">{t.lede}</p>
-                <ul className="il-target-card__list">
-                  {t.points.map((p, i) => <li key={i}>{p}</li>)}
-                </ul>
                 <span className="il-target-card__cta">
                   {t.cta}
                   <span className="il-arrow"></span>
@@ -293,7 +256,7 @@ function ILCases() {
             <a key={i} className={`il-case ${c.feature ? 'il-case--feature' : ''}`} href="#case">
               <div className="il-case__image">
                 <span className="il-case__tag">{c.tag}</span>
-                <img src={c.image} alt="" />
+                <img src={c.image} alt={c.alt || ''} />
               </div>
               <div className="il-case__meta">{c.meta}</div>
               <h3
@@ -336,7 +299,7 @@ function ILCompany() {
     <section id="company" className="il-section">
       <div className="il-container" style={{ maxWidth: 1440, paddingInline: 0 }}>
         <div className="il-company">
-          <div className="il-company__image" style={{ backgroundImage: `url(${D.company.image})` }} />
+          <div className="il-company__image" style={{ backgroundImage: `url(${D.company.image})` }} role="img" aria-label={D.company.imageAlt || ''} />
           <div className="il-company__panel">
             <p className="il-eyebrow il-eyebrow--inverted">{D.company.eyebrow}</p>
             <h2
@@ -557,10 +520,7 @@ function ILFooter() {
                 aria-label="YouTube"
                 className="il-footer__social-link"
               >
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
-                  <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/>
-                </svg>
-                <span className="il-footer__social-label">YouTube</span>
+                <img src="assets/sns_youtube.png" alt="YouTube" />
               </a>
               <a
                 href="https://www.instagram.com/kaguraku.interior/"
@@ -569,24 +529,23 @@ function ILFooter() {
                 aria-label="Instagram"
                 className="il-footer__social-link"
               >
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
-                  <rect x="3" y="3" width="18" height="18" rx="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-                </svg>
-                <span className="il-footer__social-label">Instagram</span>
-              </a>
-              <a
-                href="https://www.facebook.com/kaguraku.jp/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="il-footer__social-link"
-              >
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
-                  <path d="M13.5 22v-9h3l.5-3.5h-3.5V7c0-1 .3-1.7 1.8-1.7H17V2.1A24 24 0 0 0 14.6 2c-2.5 0-4.1 1.5-4.1 4.3v3.2H7.5V13h3v9h3Z"/>
-                </svg>
-                <span className="il-footer__social-label">Facebook</span>
+                <span className="il-ig-glyph" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="100%" height="100%">
+                    <defs>
+                      <radialGradient id="ig-grad" cx="0.3" cy="1" r="1.1">
+                        <stop offset="0" stopColor="#FDD56A"/>
+                        <stop offset="0.25" stopColor="#FEA45C"/>
+                        <stop offset="0.5" stopColor="#F65E78"/>
+                        <stop offset="0.75" stopColor="#C9379D"/>
+                        <stop offset="1" stopColor="#6F4EC9"/>
+                      </radialGradient>
+                    </defs>
+                    <rect x="1" y="1" width="22" height="22" rx="6" fill="url(#ig-grad)"/>
+                    <rect x="6" y="6" width="12" height="12" rx="4" fill="none" stroke="#fff" strokeWidth="1.7"/>
+                    <circle cx="12" cy="12" r="3.1" fill="none" stroke="#fff" strokeWidth="1.7"/>
+                    <circle cx="16.4" cy="7.6" r="1.1" fill="#fff"/>
+                  </svg>
+                </span>
               </a>
               <a
                 href="https://page.line.me/578gpbjx"
@@ -595,10 +554,16 @@ function ILFooter() {
                 aria-label="LINE"
                 className="il-footer__social-link"
               >
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
-                  <path d="M12 3C6.5 3 2 6.6 2 11c0 4 3.6 7.4 8.5 8 .3.1.8.2.9.5.1.3.1.7 0 1l-.2 1c-.1.3-.2 1.1 1 .6 1.2-.5 6.5-3.8 8.9-6.6 1.7-1.8 2.4-3.7 2.4-5.5C23.5 6.6 19 3 13.5 3H12Zm-3 6.6h-2v3.3h2v.6H6.4V8.9h2.6v.7Zm1.8 3.9h-.8V8.9h.8v4.6Zm5.2 0h-.7l-1.9-2.6v2.6h-.7V8.9h.7l1.9 2.6V8.9h.7v4.6Zm3.7-2.8h-2v.6h2v.6h-2v.7h2v.7h-2.7V8.9h2.7v.7Z"/>
-                </svg>
-                <span className="il-footer__social-label">LINE</span>
+                <img src="assets/sns_line.png" alt="LINE" />
+              </a>
+              <a
+                href="https://www.facebook.com/kaguraku.jp/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="il-footer__social-link"
+              >
+                <img src="assets/sns_facebook.png" alt="Facebook" />
               </a>
             </div>
           </div>

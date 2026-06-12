@@ -4,7 +4,7 @@
 // ============================================================
 
 const MINPAKU = {
-  heroImage: 'assets/hero_living_planning.png',
+  heroImage: 'assets/mp_hero.png',
   heroTitleEn: 'For Vacation Rentals',
   heroTitleJa: '民泊業者の方へ',
 
@@ -29,7 +29,7 @@ const MINPAKU = {
       ],
       body:
         '家具を単に販売するのではなく、壁紙・床・ラグ・照明・カーテンを含めた空間全体のコーディネートをご提案。家具の選定・調達から一括配送、現地での組み立て・設置、さらには既存家具の解体・搬出までを、当社が一括でお引き受けいたします。管理業者様・オーナー様の手配やオペレーションの煩わしさを大幅に削減いたします。',
-      image: 'assets/hero_furniture_design.png',
+      image: 'assets/mp_f1.png',
       tags: ['既存家具の搬出', '壁・床・照明・カーテン', '一括配送・設置'],
     },
     {
@@ -41,7 +41,7 @@ const MINPAKU = {
       ],
       body:
         '4FULの家具やサヤンサヤンのラグなど、自社グループの商材を中心にご提案することで、外部仕入れでは難しい価格・納期・在庫の柔軟性を確保。コストを抑えながらも、空間の質を落とさないご提案が可能です。',
-      image: 'assets/item_sofa.png',
+      image: 'assets/mp_f2.png',
       tags: ['4FUL', 'sayan sayan', 'グループサプライ'],
       reverse: true,
     },
@@ -54,7 +54,7 @@ const MINPAKU = {
       ],
       body:
         'Airbnbをはじめとする予約プラットフォームで、最も重要な指標は「サムネイル写真での見栄え」。ターゲット層（インバウンド・20〜30代など）や立地（都会型／観光地型）に合わせたコンセプトルームをパッケージ化してご提案。宿泊者の満足度を高め、高評価レビューの獲得・宿泊単価の向上へ貢献します。',
-      image: 'assets/hero_living_planning.png',
+      image: 'assets/mp_f3.png',
       tags: ['コンバージョン最適化', 'インバウンド向け', 'コンセプト設計'],
     },
     {
@@ -66,7 +66,7 @@ const MINPAKU = {
       ],
       body:
         'ビジネスホテルとの差別化を図り、1部屋あたりの収益（利回り）を上げる最も効果的な手段は「収容人数を増やす」こと。部屋の上部のデッドスペースを有効活用できるデザイン性の高いバンクベッド（2段ベッド）や、空間に合わせたセミ造作家具を導入し、限られた平米数でも大人数（4名以上）が快適に宿泊できる環境を構築いたします。',
-      image: 'assets/item_living_table.png',
+      image: 'assets/mp_f4.png',
       tags: ['バンクベッド', 'セミ造作家具', '4名以上収容'],
       reverse: true,
     },
@@ -278,12 +278,6 @@ function MinpakuFlow() {
               <p className="il-flow-step__body">{s.body}</p>
             </div>
           ))}
-        </div>
-
-        <div className="il-download">
-          <a className="il-download__btn" href="#download">
-            {MINPAKU.download.label}
-          </a>
         </div>
       </div>
     </section>

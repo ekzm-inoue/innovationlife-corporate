@@ -40,8 +40,7 @@ function App() {
   return (
     <>
       <ILHeader />
-      <ILHero auto={t.hero_auto} />
-      {t.show_marquee && <ILMarquee />}
+      <ILHero />
       <ILTargets />
       <ILPartners />
       <ILCases />
@@ -57,20 +56,6 @@ function App() {
             value={t.accent}
             options={ACCENT_OPTIONS}
             onChange={(v) => setTweak('accent', v)}
-          />
-        </TweakSection>
-        <TweakSection label="ヒーロー">
-          <TweakToggle
-            label="スライド自動再生"
-            value={t.hero_auto}
-            onChange={(v) => setTweak('hero_auto', v)}
-          />
-        </TweakSection>
-        <TweakSection label="補助要素">
-          <TweakToggle
-            label="マーキー（流れるテキスト）"
-            value={t.show_marquee}
-            onChange={(v) => setTweak('show_marquee', v)}
           />
         </TweakSection>
       </TweaksPanel>
