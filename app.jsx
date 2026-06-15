@@ -43,7 +43,8 @@ function App() {
       <ILHero />
       <ILTargets />
       <ILPartners />
-      <ILCases />
+      {/* 提案事例：コンテンツ準備中のため一時的に非表示。掲載時はこの行のコメントを外す */}
+      {/* <ILCases /> */}
       <ILCompany />
       <ILNews />
       <ILDualCTA />

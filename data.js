@@ -275,7 +275,8 @@ window.IL_DATA = {
         { label: '4FULグループについて',   href: 'company.html#group',   eyebrow: 'OUR GROUP' },
       ],
     },
-    { label: '提案事例',     href: 'case-list.html' },
+    /* 提案事例：コンテンツ準備中のため一時的に非表示。掲載時はこの行のコメントを外す */
+    /* { label: '提案事例',     href: 'case-list.html' }, */
     { label: 'お知らせ・ブログ', href: 'news.html' },
     { label: 'よくあるご質問', href: 'faq.html' },
   ],

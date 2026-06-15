@@ -571,7 +571,7 @@ function ILFooter() {
             <div className="il-footer__col">
               <p className="il-footer__col-head">SERVICES</p>
               <ul>
-                <li><a href="builders.html">ハウスメーカー・工務店の方へ</a></li>
+                <li><a href="builders.html">工務店・ハウスメーカーの方へ</a></li>
                 <li><a href="furnituremakers.html">家具メーカーの方へ</a></li>
                 <li><a href="minpaku.html">民泊業者の方へ</a></li>
                 <li><a href="kaguraku.html">カグラク（個人のお客様）</a></li>
@@ -589,7 +589,8 @@ function ILFooter() {
               <p className="il-footer__col-head">STORIES</p>
               <ul>
                 <li><a href="news.html">お知らせ・ブログ</a></li>
-                <li><a href="case-list.html">提案事例</a></li>
+                {/* 提案事例：コンテンツ準備中のため一時的に非表示。掲載時はこの行のコメントを外す */}
+                {/* <li><a href="case-list.html">提案事例</a></li> */}
               </ul>
             </div>
             <div className="il-footer__col">

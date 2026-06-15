@@ -1094,3 +1094,56 @@ _[tool: str_replace_edit]_
 - 「工務店様向けサービスを見る」→「**工務店・ハウスメーカー様向けサービスを見る**」
 - 「メーカー様向けサービスを見る」→「**家具メーカー様向けサービスを見る**」
 
+## User
+
+下記に変更
+「工務店・ハウスメーカーの方へ」
+
+## Assistant
+
+_[tool: str_replace_edit]_
+
+フッターのSERVICESの該当リンクを「**工務店・ハウスメーカーの方へ**」に変更しました。これでヘッダー・フッター・各ページの見出しがすべて「工務店・ハウスメーカー」の表記で統一されています。
+
+## User
+
+「提案事例」ですが、現在用意できていません。
+今後、掲載したいですが、
+一旦コメントアウトで非表示にしたうえで公開したいです。
+
+・トップページ
+・ヘッダー
+・フッタ
+の該当箇所はコメントアウトで非表示にしてください。
+（再利用できるように必ずコメントアウトでお願いします。）
+
+## Assistant
+
+_[tool: grep]_
+
+I'll comment out the 提案事例 references in the three places, preserving them for later re-use. Let me check app.jsx context:
+
+_[tool: read_file]_
+
+_[tool: str_replace_edit]_
+
+_[tool: str_replace_edit]_
+
+_[tool: str_replace_edit]_
+
+Let me check the index's bottom CTA band doesn't also link to 提案事例:
+
+_[tool: grep]_
+
+The bottom CTA is FAQ+Contact only — no 事例 link there. The 提案事例 references are now hidden in all three places. Let me verify the top page renders cleanly without the section:
+
+_[tool: done]_
+
+「提案事例」を3か所すべて**コメントアウト**で非表示にしました（削除はしていないので、後で簡単に復活できます）。
+
+- **トップページ**：`app.jsx` の `<ILCases />`（事例セクション）
+- **ヘッダー**：`data.js` のナビ項目「提案事例」
+- **フッター**：`components.jsx` の STORIES 内「提案事例」リンク
+
+各箇所に「掲載時はこの行のコメントを外す」と日本語の注記を添えてあります。掲載準備ができたら、その行のコメントを外すだけで元に戻せます。コンソールエラーもありません。
+
