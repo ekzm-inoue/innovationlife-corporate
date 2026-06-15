@@ -47,7 +47,9 @@
       "Bash(git commit -m 'デザイン調整：実画像と文言を反映 *)",
       "Bash(cp -r temp-design/untitled .)",
       "Bash(python -c ' *)",
-      "Bash(git commit -m 'お知らせ・ブログ記事の詳細ページを追加、文言と並び順を調整 *)"
+      "Bash(git commit -m 'お知らせ・ブログ記事の詳細ページを追加、文言と並び順を調整 *)",
+      "Bash(git commit -m '提案事例（case-list）リンクを一時的に非表示 *)",
+      "Bash(git rm *)"
     ]
   }
 }

@@ -1147,3 +1147,27 @@ _[tool: done]_
 
 各箇所に「掲載時はこの行のコメントを外す」と日本語の注記を添えてあります。掲載準備ができたら、その行のコメントを外すだけで元に戻せます。コンソールエラーもありません。
 
+## User
+
+Address these comments from my teammates:
+
+**井上祐貴** (on `innovation-life/case-list.html` at `[data-om-id="jsx:/https:/7d2c0066-3bea-4647-ac5a-db202ad9ffec.claudeusercontent.com/v1/design/projects/7d2c0066-3bea-4647-ac5a-db202ad9ffec/serve/innovation-life/components.jsx:14307:389:11"]`):
+<teammate-comment>ボタン文言を下記に変更して
+「お知らせ・ブログ　一覧を見る」</teammate-comment>
+
+## Assistant
+
+_[tool: grep]_
+
+_[tool: read_file]_
+
+The comment points at a shared component (components.jsx) rendered on case-list. Let me find the button there:
+
+_[tool: grep]_
+
+Found it — the top-page news section button at line 389 reads `{tab}一覧を見る` (changes with the active tab). I'll make it the static「お知らせ・ブログ　一覧を見る」:
+
+_[tool: str_replace_edit]_
+
+トップページ「お知らせ・ブログ」セクションのボタン文言を「**お知らせ・ブログ　一覧を見る**」に変更しました。これまではタブ（お知らせ／ブログ）に応じて「お知らせ一覧を見る」等と切り替わっていましたが、固定の文言に統一しています。
+

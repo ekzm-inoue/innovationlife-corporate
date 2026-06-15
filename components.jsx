@@ -387,7 +387,7 @@ function ILNews() {
         </div>
         <div style={{ textAlign: 'center', marginTop: 56 }}>
           <a className="il-btn il-btn--ghost" href="news.html">
-            {tab}一覧を見る
+            お知らせ・ブログ　一覧を見る
             <span className="il-arrow"></span>
           </a>
         </div>
