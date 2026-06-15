@@ -12,33 +12,19 @@ const NEWS_DATA = {
 
   tabs: {
     お知らせ: {
-      categories: ['すべて', 'お知らせ', 'プレスリリース', 'メディア'],
+      categories: ['すべて', 'お知らせ'],
       items: [
-        { date: '2026.05.10', cat: 'お知らせ',       title: 'GW期間中の営業時間に関するご案内' },
-        { date: '2026.04.18', cat: 'プレスリリース', title: '家具メーカー向けサービス「AFF」、2024年版資料を更新いたしました' },
-        { date: '2026.04.02', cat: 'お知らせ',       title: '本社オフィス移転のお知らせ' },
-        { date: '2026.03.20', cat: 'メディア',       title: '住宅専門誌『MODERN LIVING』にカグラクが掲載されました' },
-        { date: '2026.03.05', cat: 'お知らせ',       title: '春の家具・照明 新作お披露目会のご案内' },
-        { date: '2026.02.14', cat: 'お知らせ',       title: '工務店様向けオンラインセミナーを開催いたします' },
-        { date: '2026.02.01', cat: 'プレスリリース', title: '4FULグループにおける2026年度の事業方針について' },
-        { date: '2026.01.18', cat: 'メディア',       title: '日経クロストレンドにて、カグラクの取り組みが紹介されました' },
-        { date: '2026.01.07', cat: 'お知らせ',       title: '新年のご挨拶 — 2026年の取り組みについて' },
-        { date: '2025.12.20', cat: 'お知らせ',       title: '年末年始休業のお知らせ' },
+        { id: '003', date: '2026.04.27', cat: 'お知らせ', title: 'GW期間中の休業のお知らせ' },
+        { id: '002', date: '2025.12.29', cat: 'お知らせ', title: '年末年始休業のお知らせ' },
+        { id: '001', date: '2025.10.20', cat: 'お知らせ', title: '「アジア・ファニシング・フェア 2025」出展のお知らせ' },
       ],
     },
     ブログ: {
-      categories: ['すべて', 'インテリア', 'コラム', '事例', 'イベント'],
+      categories: ['すべて', '事例紹介', 'コラム'],
       items: [
-        { date: '2026.05.15', cat: 'インテリア', title: '北欧家具と日本の住まい — 引き算でつくる調和' },
-        { date: '2026.05.07', cat: 'コラム',     title: 'コーディネーターの一日：お打合せから現場までの裏側' },
-        { date: '2026.04.28', cat: 'インテリア', title: '失敗しないソファ選び、3つの視点' },
-        { date: '2026.04.15', cat: 'コラム',     title: '家具メーカー様との協業事例：愛着のある一脚をつくる' },
-        { date: '2026.04.02', cat: 'インテリア', title: '光のレイヤリング — 一室に必要な3つの灯' },
-        { date: '2026.03.21', cat: 'イベント',   title: '家具メーカー様向け展示会レポート — 春の市2026' },
-        { date: '2026.03.02', cat: 'インテリア', title: 'カーテンの色で、暮らしの温度が変わる話' },
-        { date: '2026.02.18', cat: '事例',       title: '杉並の家 — 引き算の余白を活かすリビング設計' },
-        { date: '2026.01.30', cat: 'コラム',     title: '新生活、家具を「揃える」から「選ぶ」へ' },
-        { date: '2026.01.12', cat: 'インテリア', title: 'ラグ一枚で変わる、リビングの居心地' },
+        { id: 'b001', date: '2026.06.15', cat: '事例紹介', title: '【コーディネート事例】ご予算40万円で叶える、統一感のあるトータルインテリアコーディネート' },
+        { id: 'b002', date: '2026.06.15', cat: '事例紹介',       title: '【施工事例】オフィス家具の納品と内装プチリノベーションで叶える、お客様を迎え入れる快適な商談スペース' },
+        { id: 'b003', date: '2026.06.15', cat: 'コラム', title: '【インテリアのコツ】部屋がごちゃごちゃして見える原因は？プロが教える「失敗しない配色の黄金ルール」' },
       ],
     },
   },
@@ -142,7 +128,7 @@ function NewsList() {
         {/* List */}
         <div className="il-news-list">
           {items.map((n, i) => (
-            <a key={i} className="il-news-item" href="news-detail.html">
+            <a key={i} className="il-news-item" href={n.id ? `news-detail.html?id=${n.id}` : 'news-detail.html'}>
               <span className="il-news-date">{n.date}</span>
               <span className="il-news-cat">{n.cat}</span>
               <span className="il-news-title">{n.title}</span>
@@ -157,6 +143,7 @@ function NewsList() {
         </div>
 
         {/* Pagination */}
+        {tabData.items.length > 9 && (
         <div className="il-pagination">
           <span className="il-pagination__arrow">←</span>
           <a href="#" className="is-current">1</a>
@@ -164,6 +151,7 @@ function NewsList() {
           <a href="#">3</a>
           <a href="#" className="il-pagination__arrow">→</a>
         </div>
+        )}
       </div>
     </section>
   );

@@ -6,7 +6,7 @@
 const BUILDERS = {
   heroImage: 'assets/builders_hero.png',
   heroTitleEn: 'For Builders',
-  heroTitleJa: 'ハウスメーカー・工務店の方へ',
+  heroTitleJa: '工務店・ハウスメーカーの方へ',
 
   lead: {
     eyebrow: 'WHY KAGURAKU',
@@ -134,7 +134,7 @@ function BuilderBreadcrumb() {
         <span>／</span>
         <a href="index.html#services">サービス</a>
         <span>／</span>
-        ハウスメーカー・工務店の方へ
+        工務店・ハウスメーカーの方へ
       </div>
     </div>
   );

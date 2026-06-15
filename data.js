@@ -41,21 +41,6 @@ window.IL_DATA = {
   targets: [
     {
       num: '01',
-      audience: 'FOR FURNITURE MAKERS',
-      titleHtml: '<em>家具メーカー</em>の方へ',
-      lede: '製品を「届ける」その先へ。インテリアコーディネートを通じて、メーカー様の家具をエンドユーザーの暮らしに溶け込ませる販路をご提案いたします。',
-      points: [
-        '全国の工務店・ハウスメーカーへ製品紹介',
-        '専属コーディネーターによる提案販売',
-        '受発注・物流・施工までワンストップ対応',
-      ],
-      cta: 'メーカー様向けサービスを見る',
-      href: 'furnituremakers.html',
-      image: 'assets/item_dining.png',
-      overlay: 'FOR MAKERS',
-    },
-    {
-      num: '02',
       audience: 'FOR BUILDERS',
       titleHtml: '<em>工務店・ハウスメーカー</em>の方へ',
       lede: '間取りの完成は、暮らしのはじまり。建てる空間にふさわしいインテリアを、お引渡し前の最後の一手として一括ご提案いたします。',
@@ -64,10 +49,25 @@ window.IL_DATA = {
         '提携家具・照明・カーテンを一括見積',
         'エンドユーザー様への直接ご提案も可能',
       ],
-      cta: '工務店様向けサービスを見る',
+      cta: '工務店・ハウスメーカー様向けサービスを見る',
       href: 'builders.html',
       image: 'assets/hero_living_planning.png',
       overlay: 'FOR BUILDERS',
+    },
+    {
+      num: '02',
+      audience: 'FOR FURNITURE MAKERS',
+      titleHtml: '<em>家具メーカー</em>の方へ',
+      lede: '製品を「届ける」その先へ。インテリアコーディネートを通じて、メーカー様の家具をエンドユーザーの暮らしに溶け込ませる販路をご提案いたします。',
+      points: [
+        '全国の工務店・ハウスメーカーへ製品紹介',
+        '専属コーディネーターによる提案販売',
+        '受発注・物流・施工までワンストップ対応',
+      ],
+      cta: '家具メーカー様向けサービスを見る',
+      href: 'furnituremakers.html',
+      image: 'assets/item_dining.png',
+      overlay: 'FOR MAKERS',
     },
     {
       num: '03',
@@ -181,18 +181,14 @@ window.IL_DATA = {
 
   news: {
     お知らせ: [
-      { date: '2026.05.10', cat: 'お知らせ', title: 'GW期間中の営業時間に関するご案内' },
-      { date: '2026.04.18', cat: 'プレスリリース', title: '家具メーカー向けサービス「AFF」、2024年版資料を更新いたしました' },
-      { date: '2026.04.02', cat: 'お知らせ', title: '本社オフィス移転のお知らせ' },
-      { date: '2026.03.20', cat: 'メディア', title: '住宅専門誌『MODERN LIVING』にカグラクが掲載されました' },
-      { date: '2026.02.14', cat: 'お知らせ', title: '工務店様向けオンラインセミナーを開催いたします' },
+      { id: '003', date: '2026.04.27', cat: 'お知らせ', title: 'GW期間中の休業のお知らせ' },
+      { id: '002', date: '2025.12.29', cat: 'お知らせ', title: '年末年始休業のお知らせ' },
+      { id: '001', date: '2025.10.20', cat: 'お知らせ', title: '「アジア・ファニシング・フェア 2025」出展のお知らせ' },
     ],
     ブログ: [
-      { date: '2026.05.15', cat: 'インテリア', title: '北欧家具と日本の住まい — 引き算でつくる調和' },
-      { date: '2026.05.07', cat: 'コラム', title: 'コーディネーターの一日：お打合せから現場までの裏側' },
-      { date: '2026.04.28', cat: 'インテリア', title: '失敗しないソファ選び、3つの視点' },
-      { date: '2026.04.15', cat: 'コラム', title: '家具メーカー様との協業事例：愛着のある一脚をつくる' },
-      { date: '2026.04.02', cat: 'インテリア', title: '光のレイヤリング — 一室に必要な3つの灯' },
+      { id: 'b001', date: '2026.06.15', cat: '事例紹介', title: '【コーディネート事例】ご予算40万円で叶える、統一感のあるトータルインテリアコーディネート' },
+      { id: 'b002', date: '2026.06.15', cat: '事例紹介', title: '【施工事例】オフィス家具の納品と内装プチリノベーションで叶える、快適な商談スペース' },
+      { id: 'b003', date: '2026.06.15', cat: 'コラム', title: '【インテリアのコツ】部屋がごちゃごちゃして見える原因は？「失敗しない配色の黄金ルール」' },
     ],
   },
 
@@ -264,7 +260,7 @@ window.IL_DATA = {
       label: 'サービス',
       href: 'index.html#services',
       children: [
-        { label: 'ハウスメーカー・工務店の方へ', href: 'builders.html', eyebrow: 'FOR BUILDERS' },
+        { label: '工務店・ハウスメーカーの方へ', href: 'builders.html', eyebrow: 'FOR BUILDERS' },
         { label: '家具メーカーの方へ',         href: 'furnituremakers.html', eyebrow: 'FOR FURNITUREMAKERS' },
         { label: '民泊業者の方へ',             href: 'minpaku.html',         eyebrow: 'FOR VACATION RENTALS' },
         { label: '個人の方へ（カグラク）',     href: 'kaguraku.html', eyebrow: 'FOR INDIVIDUALS' },
@@ -280,7 +276,7 @@ window.IL_DATA = {
       ],
     },
     { label: '提案事例',     href: 'case-list.html' },
-    { label: 'お知らせ',     href: 'news.html' },
+    { label: 'お知らせ・ブログ', href: 'news.html' },
     { label: 'よくあるご質問', href: 'faq.html' },
   ],
 };

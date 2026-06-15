@@ -647,3 +647,450 @@ _[tool: str_replace_edit]_
 
 サムネイル画像上の「01 / 04」と「FOR MAKERS」等のラベルを、4つのメニューカードすべてから削除しました。トップページの「家づくりに+αの価値を。」セクションでご確認ください。
 
+## User
+
+Address these comments from my teammates:
+
+**井上祐貴** (at `[data-om-id="jsx:/https:/7d2c0066-3bea-4647-ac5a-db202ad9ffec.claudeusercontent.com/v1/design/projects/7d2c0066-3bea-4647-ac5a-db202ad9ffec/serve/innovation-life/components.jsx:6008:160:9"]`):
+<teammate-comment>ここのリード文を、
+全ターゲット（工務店・家具メーカー・民泊業者・個人）全部に向けた、汎用的なメッセージにして</teammate-comment>
+
+## Assistant
+
+_[tool: str_replace_edit]_
+
+This is the #services intro lede (which I'd previously set to a coordinator/individual-focused message). The teammate wants it generalized to all four audiences. Rewriting:井上さんのコメントを反映しました。#services セクションのリード文を、全ターゲット（工務店・家具メーカー・民泊事業者・個人）に向けた汎用メッセージに変更しました：
+
+「**工務店・家具メーカー・民泊事業者から個人のお客様まで。住空間に関わるすべての方へ、インテリアのご提案から家具の調達・配送・設置までをワンストップでサポートします。**」
+
+## User
+
+お知らせ・ブログのトップページでの表示記事数を３記事にして
+
+## Assistant
+
+_[tool: grep]_
+
+_[tool: str_replace_edit]_
+
+トップページの「お知らせ・ブログ」セクションの表示記事数を3記事に変更しました（各タブとも先頭3件のみ表示）。一覧ページ（news.html）は従来どおり全件表示のままです。
+
+## User
+
+お知らせ記事の掲載内容は、それぞれ添付のmdファイルの内容に差し替えて。
+一覧・詳細ページともに差し替えてください。
+
+## Assistant
+
+_[tool: read_file]_
+
+_[tool: read_file]_
+
+_[tool: read_file]_
+
+_[tool: grep]_
+
+_[tool: read_file]_
+
+_[tool: read_file]_
+
+Now let me look at the news-detail and news list pages to understand their structure:
+
+_[tool: read_file]_
+
+Now the news list page (news.jsx):
+
+_[tool: read_file]_
+
+This is a substantial change — there are 3 articles but only one detail page. I'll make the detail page article-aware via a `?id=` query param, define the 3 full articles, point each list row to the right article, and update the list + top-page sections. Let me build it.
+
+_[tool: str_replace_edit]_
+
+Now update the index-page news section to link with ids:
+
+_[tool: str_replace_edit]_
+
+_[tool: str_replace_edit]_
+
+Now update the list page (news.jsx) — replace the お知らせ tab items, simplify its categories, link rows by id, and hide pagination for short lists:
+
+_[tool: str_replace_edit]_
+
+_[tool: str_replace_edit]_
+
+Now the core change — rewrite the detail page to render whichever article the `?id=` points to, with the other two as related:
+
+_[tool: str_replace_edit]_
+
+Now rewrite the ArticleBody renderer to render the block array, and fix the nav/related links:
+
+_[tool: str_replace_edit]_
+
+_[tool: str_replace_edit]_
+
+Now rewrite ArticleBody to render the block array:
+
+_[tool: str_replace_edit]_
+
+All wired. Let me verify the detail page renders for each article:
+
+_[tool: done]_
+
+_[tool: fork_verifier_agent]_
+
+お知らせ記事を、添付の3つのmdファイルの内容に差し替えました。一覧・詳細の両方に反映しています。
+
+**差し替えた3記事（お知らせタブ）**
+- 2026.04.27　GW期間中の休業のお知らせ
+- 2025.12.29　年末年始休業のお知らせ
+- 2025.10.20　「アジア・ファニシング・フェア 2025」出展のお知らせ
+
+**変更点**
+- 一覧ページ（news.html）と トップページのお知らせ欄に3記事を反映。各行は対応する詳細記事へリンク（`?id=001〜003`）。
+- 詳細ページ（news-detail.html）を1記事固定から**記事切り替え式**に変更。URLの `?id=` で該当記事を表示し、本文（見出し・休業期間のボックス・出展概要の表など）をmd内容どおりに描画します。
+- 「関連するお知らせ」「前／次の記事」も実在する他記事へリンクするよう更新。
+- お知らせは3件のため、一覧のカテゴリ絞り込みを「すべて／お知らせ」に簡素化し、ページネーションは非表示にしました（ブログタブは従来どおり）。
+
+ブログタブの記事は今回の対象外として据え置いています。仕上がりは検証中です。
+
+## User
+
+No issues found
+
+## Assistant
+
+検証も通りました。お知らせ記事の差し替えは完了です。次のご指示があればどうぞ。
+
+## User
+
+お知らせ詳細ページの
+「POSTED BY」の項目は不要です。
+詳細ページのテンプレートから削除して。
+現在の記事からも削除して
+
+## Assistant
+
+_[tool: str_replace_edit]_
+
+詳細ページのヒーローから「POSTED BY」の表示を削除しました。テンプレート（NewsDetailHero）から該当ブロックを除いたので、全記事で非表示になります。データ側の `author` は残してありますが表示には使われません。
+
+## User
+
+Address these comments from my teammates:
+
+**井上祐貴** (on `innovation-life/news-detail.html` at `[data-comment-anchor="54ebcfae41-p-121-13"]`):
+<teammate-comment>ちょっと目立たせすぎです。
+
+太字＋フォントサイズ大きめ程度での強調表示にして</teammate-comment>
+
+## Assistant
+
+_[tool: read_file]_
+
+The period box (休業期間) is too loud. I'll drop the callout box and render it as a simple bold, slightly-larger paragraph:
+
+_[tool: str_replace_edit]_
+
+井上さんのコメントを反映しました。休業期間の表示を、目立つカラーボックス（callout）から、**太字＋少し大きめのフォントサイズ**だけの控えめな強調に変更しました。全記事の「休業期間」表示に適用されます。
+
+## User
+
+「ブログ」についても、それぞれ添付のmdファイルの内容に差し替えてください。
+また、それぞれのzipファイル内の画像についても設置してください。
+
+## Assistant
+
+I'll read the three blog source files and check the images.
+
+_[tool: read_file]_
+
+_[tool: read_file]_
+
+_[tool: read_file]_
+
+All three blogs read. blog-001 & 002 have two photos each; blog-003 has two YouTube embeds and no images. Let me copy the four images in and extend the article system to handle blogs (images, sub-headings, lists, video embeds).
+
+_[tool: copy_files]_
+
+Now let me read the current detail-page article setup to extend it:
+
+_[tool: read_file]_
+
+Now I'll add the three blog articles and make prev/next/related group-aware:
+
+_[tool: str_replace_edit]_
+
+Now extend the body renderer to handle `imgrow`, `h3`, `ul`, and `videorow`:
+
+_[tool: str_replace_edit]_
+
+Now I need CSS for the new figure/video/list classes. Let me check what `il-article` styles exist:
+
+_[tool: grep]_
+
+_[tool: read_file]_
+
+I'll add styles for figures, image rows, video embeds, and lists after the signature block:
+
+_[tool: str_replace_edit]_
+
+Now update the blog list data — in news.jsx (ブログ tab) and data.js (D.news.ブログ):
+
+_[tool: str_replace_edit]_
+
+_[tool: str_replace_edit]_
+
+All wired. Let me verify the blog detail pages render — images and video embeds:
+
+_[tool: show_html]_
+
+_[tool: show_html]_
+
+_[tool: save_screenshot]_
+
+_[tool: save_screenshot]_
+
+Images render correctly in a 2-up row with captions. Now let me verify blog-003's video embeds:
+
+_[tool: save_screenshot]_
+
+_[tool: show_html]_
+
+_[tool: save_screenshot]_
+
+Both blog images and the two YouTube embeds render correctly. Let me clean up the check screenshots and finalize:
+
+_[tool: delete_file]_
+
+_[tool: done]_
+
+_[tool: fork_verifier_agent]_
+
+ブログを、添付の3つのファイルの内容に差し替え、画像も設置しました。一覧・詳細とも反映済みです。
+
+**差し替えた3記事（ブログタブ／いずれも 2026.06.15）**
+- **コーディネート事例**　ご予算40万円で叶える、統一感のあるトータルインテリアコーディネート（写真2点：納品後＋パース図）
+- **施工事例**　オフィス家具の納品と内装プチリノベーション（写真2点＋納品家具・内装施工内容のリスト）
+- **インテリアコラム**　失敗しない配色の黄金ルール（YouTube動画2本を埋め込み）
+
+**対応した点**
+- 各zip内の画像4点を assets に設置し、記事内に2枚並びのキャプション付きで配置。
+- ブログ詳細でも画像・小見出し（h3）・箇条書き・動画埋め込みを表示できるよう、本文の描画と専用スタイルを追加。
+- 一覧（news.html）とトップページのブログ欄を3記事に更新。各行は対応する詳細（`?id=b001〜b003`）へリンク。
+- 「前／次の記事」「関連記事」はブログ記事グループ内で循環するよう調整（お知らせとは分離）。
+- ブログのカテゴリ絞り込みを新カテゴリに更新。
+
+YouTube埋め込みはプレビューのサンドボックス上では黒く表示されることがありますが、実ブラウザでは再生されます。仕上がりは検証中です。
+
+## User
+
+No issues found
+
+## Assistant
+
+検証も通りました。ブログの差し替え・画像設置はすべて完了しています。次のご指示があればどうぞ。
+
+## User
+
+この署名は不要です。テンプレートからも削除して
+
+## Assistant
+
+_[tool: str_replace_edit]_
+
+記事末尾の署名（「イノベーションライフ株式会社 事務局一同」）を、詳細ページのテンプレート（ArticleBody）から削除しました。全記事で非表示になります。
+
+## User
+
+「コーポレート事例」・「施工事例」というカテゴリは、
+それぞれ、「事例紹介」という１つのカテゴリに統合して
+
+## Assistant
+
+「コーディネート事例」と「施工事例」を「事例紹介」に統合します。一覧（news.html）、トップページ、詳細ページの3か所を更新します。
+
+_[tool: str_replace_edit]_
+
+_[tool: str_replace_edit]_
+
+_[tool: str_replace_edit]_
+
+「コーディネート事例」「施工事例」を「**事例紹介**」に統合しました。
+
+- ブログ一覧（news.html）：カテゴリ絞り込みを「すべて／事例紹介／インテリアコラム」に変更し、b001・b002 のラベルを「事例紹介」に統一。
+- トップページのブログ欄、詳細ページの記事カテゴリ表示も同様に「事例紹介」へ更新。
+
+記事タイトル冒頭の【コーディネート事例】【施工事例】という表記は本文タイトルの一部のため残していますが、カテゴリ表示（タグ）はすべて「事例紹介」に揃えました。タイトル側の表記も外したい場合はお知らせください。
+
+## User
+
+「インテリアコラム」は「コラム」にカテゴリ名を変更して
+
+## Assistant
+
+_[tool: str_replace_edit]_
+
+_[tool: str_replace_edit]_
+
+_[tool: str_replace_edit]_
+
+カテゴリ名「インテリアコラム」を「**コラム**」に変更しました（一覧の絞り込みチップ・記事タグ・トップページ・詳細ページすべて反映）。
+
+## User
+
+ヘッダーとフッタなど、「お知らせ」というメニュー名になっている箇所を、
+「お知らせ」→「お知らせ・ブログ」に名称を統一して。
+
+## Assistant
+
+_[tool: grep]_
+
+_[tool: grep]_
+
+Menu labels to update: header nav (data.js) and footer (components.jsx). Let me also catch the breadcrumbs on the news pages for consistency:
+
+_[tool: grep]_
+
+The root-level `news-detail.jsx`/`components.jsx` are stray copies not loaded by the site (the pages load `innovation-life/…`). I'll update the live files — header nav, footer, and the news-detail breadcrumb/「一覧」link. The news.jsx breadcrumb already reads お知らせ・ブログ.
+
+_[tool: str_replace_edit]_
+
+_[tool: str_replace_edit]_
+
+_[tool: str_replace_edit]_
+
+メニュー名「お知らせ」を「**お知らせ・ブログ**」に統一しました。
+
+- ヘッダーナビ
+- フッターメニュー（STORIES内）
+- 詳細ページのパンくず／「一覧へ戻る」リンク
+
+一覧ページ（news.html）のパンくず・見出しは既に「お知らせ・ブログ」になっており、記事カテゴリのタグ（「お知らせ」「事例紹介」「コラム」）は内容を表すものなので変更していません。
+
+## User
+
+ブログの各記事の最後にある。
+「インテリアに関するご相談について」のブロックは不要です。
+各記事から削除して
+
+## Assistant
+
+ブログ各記事末尾の「ご相談について」ブロック（見出し＋本文）を3記事すべてから削除します。
+
+_[tool: str_replace_edit]_
+
+ブログ3記事の末尾にあった「ご相談について」ブロック（見出し＋本文）を削除しました。
+
+- b001：「インテリアに関するご相談について」
+- b002：「オフィスや店舗の空間づくりに関するご相談について」
+- b003：「インテリアコーディネートのご相談について」
+
+各記事は、本編の締めの段落で終わるようになりました。
+
+## User
+
+Address these comments from my teammates:
+
+**井上祐貴** (on `innovation-life/index.html` at `#root .il-section-head >:is(h1,h2) >:is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption)`):
+<teammate-comment>対象はブログ記事なので、
+「関連するブログ記事」に見出しを変更して</teammate-comment>
+
+**井上祐貴** (on `innovation-life/index.html` at `[data-om-id="jsx:/https:/7d2c0066-3bea-4647-ac5a-db202ad9ffec.claudeusercontent.com/v1/design/projects/7d2c0066-3bea-4647-ac5a-db202ad9ffec/serve/innovation-life/components.jsx:21149:571:13"]`):
+<teammate-comment>ヘッダーの並び順に合わせて</teammate-comment>
+
+**井上祐貴** (on `innovation-life/index.html` at `[data-om-id="jsx:/https:/7d2c0066-3bea-4647-ac5a-db202ad9ffec.claudeusercontent.com/v1/design/projects/7d2c0066-3bea-4647-ac5a-db202ad9ffec/serve/innovation-life/components.jsx:6994:197:7"]`):
+<teammate-comment>サービスは、ヘッダの並び順に合わせて</teammate-comment>
+
+## User
+
+お知らせやブログ記事詳細の下部にある、
+「関連するお知らせ」
+「関連するブログ記事」
+は不要です。
+それぞれ添付やブログ詳細から削除して
+
+## User
+
+お知らせやブログ記事詳細の下部にある、
+「関連するお知らせ」
+「関連するブログ記事」
+は不要です。
+それぞれ添付やブログ詳細から削除して
+
+## Assistant
+
+_[tool: grep]_
+
+_[tool: str_replace_edit]_
+
+お知らせ・ブログ記事詳細の下部にあった「関連するお知らせ」「関連するブログ記事」セクションを削除しました。記事は本文・記事ナビ（前／次・一覧）の後、すぐにお問い合わせ等のCTAに続くようになりました。
+
+## User
+
+Address these comments from my teammates:
+
+**井上祐貴** (on `innovation-life/index.html` at `[data-comment-anchor="558fbcf655-span-121-11"]`):
+<teammate-comment>ハウスメーカー・工務店の方へ
+↓
+工務店・ハウスメーカーの方へ</teammate-comment>
+
+**井上祐貴** (on `innovation-life/index.html` at `#root > header:nth-child(1) > div:nth-child(1) > nav:nth-child(2) > div:nth-child(1) > a:nth-child(1)`):
+<teammate-comment>ヘッダー内のメニュー名は、下記に変更
+「ハウスメーカー・工務店の方へ」
+↓
+「工務店・ハウスメーカーの方へ」</teammate-comment>
+
+**井上祐貴** (on `innovation-life/index.html` at `.il-footer__col :is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption) >[href="builders.html"] >:is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption)`):
+<teammate-comment>「工務店の方へ」
+↓
+「ハウスメーカー・工務店の方へ」</teammate-comment>
+
+## Assistant
+
+_[tool: str_replace_edit]_
+
+_[tool: str_replace_edit]_
+
+井上さんのコメントを反映しました。
+
+- **ヘッダーのメニュー名**：「ハウスメーカー・工務店の方へ」→「**工務店・ハウスメーカーの方へ**」
+- **フッターのSERVICES**：「工務店の方へ」→「**ハウスメーカー・工務店の方へ**」
+
+ご指定どおり、ヘッダーとフッターで表記を入れ替えています。
+
+## User
+
+「工務店・ハウスメーカーの方へ」
+に文言変更して
+
+## Assistant
+
+_[tool: grep]_
+
+_[tool: str_replace_edit]_
+
+ハウスメーカー・工務店向けページの見出しを「**工務店・ハウスメーカーの方へ**」に変更しました（ヒーローの大見出しと、パンくずの表記の2か所）。
+
+## User
+
+Address these comments from my teammates:
+
+**井上祐貴** (on `innovation-life/index.html` at `#services > div:nth-child(1) > div:nth-child(2) > a:nth-child(1) > div:nth-child(2) > span:nth-child(4)`):
+<teammate-comment>工務店様向け
+↓
+工務店・ハウスメーカー様向け</teammate-comment>
+
+**井上祐貴** (on `innovation-life/index.html` at `#services > div:nth-child(1) > div:nth-child(2) > a:nth-child(2) > div:nth-child(2) > span:nth-child(4)`):
+<teammate-comment>メーカー様向け
+↓
+家具メーカー様向け</teammate-comment>
+
+## Assistant
+
+_[tool: str_replace_edit]_
+
+トップページのサービスカードのボタン文言を変更しました。
+
+- 「工務店様向けサービスを見る」→「**工務店・ハウスメーカー様向けサービスを見る**」
+- 「メーカー様向けサービスを見る」→「**家具メーカー様向けサービスを見る**」
+

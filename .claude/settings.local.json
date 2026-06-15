@@ -43,7 +43,10 @@
       "Bash(cp temp-design/untitled/project/innovation-life/*.jsx .)",
       "Bash(cp temp-design/untitled/project/innovation-life/*.js .)",
       "Bash(cp -r temp-design/untitled/project/innovation-life/styles/. styles/)",
-      "Bash(cp -r temp-design/untitled/project/innovation-life/assets/. assets/)"
+      "Bash(cp -r temp-design/untitled/project/innovation-life/assets/. assets/)",
+      "Bash(git commit -m 'デザイン調整：実画像と文言を反映 *)",
+      "Bash(cp -r temp-design/untitled .)",
+      "Bash(python -c ' *)"
     ]
   }
 }

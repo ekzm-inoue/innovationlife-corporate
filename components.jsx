@@ -201,7 +201,7 @@ function ILTargets({ layout = 'cards' }) {
             家づくりに<em>+α</em>の価値を。
           </h2>
           <p className="il-section-lede">
-            カグラクが誇るインテリアコーディネーターが、家具の選定から設置まで一括サポート。<br/>日々の暮らしを彩るインテリアを提案します。
+            工務店・家具メーカー・民泊事業者から個人のお客様まで。<br/>住空間に関わるすべての方へ、インテリアのご提案から家具の調達・配送・設置までをワンストップでサポートします。
           </p>
         </div>
         <div className="il-targets" data-layout={layout}>
@@ -350,7 +350,7 @@ function ILCompany() {
 function ILNews() {
   const tabs = Object.keys(D.news);
   const [tab, setTab] = React.useState(tabs[0]);
-  const items = D.news[tab];
+  const items = D.news[tab].slice(0, 3);
 
   return (
     <section id="news" className="il-section il-section--paper">
@@ -377,7 +377,7 @@ function ILNews() {
         </div>
         <div className="il-news-list">
           {items.map((n, i) => (
-            <a key={i} className="il-news-item" href="news-detail.html">
+            <a key={i} className="il-news-item" href={n.id ? `news-detail.html?id=${n.id}` : 'news-detail.html'}>
               <span className="il-news-date">{n.date}</span>
               <span className="il-news-cat">{n.cat}</span>
               <span className="il-news-title">{n.title}</span>
@@ -571,10 +571,10 @@ function ILFooter() {
             <div className="il-footer__col">
               <p className="il-footer__col-head">SERVICES</p>
               <ul>
-                <li><a href="kaguraku.html">カグラク（個人のお客様）</a></li>
+                <li><a href="builders.html">ハウスメーカー・工務店の方へ</a></li>
                 <li><a href="furnituremakers.html">家具メーカーの方へ</a></li>
-                <li><a href="builders.html">工務店の方へ</a></li>
                 <li><a href="minpaku.html">民泊業者の方へ</a></li>
+                <li><a href="kaguraku.html">カグラク（個人のお客様）</a></li>
               </ul>
             </div>
             <div className="il-footer__col">
@@ -588,7 +588,7 @@ function ILFooter() {
             <div className="il-footer__col">
               <p className="il-footer__col-head">STORIES</p>
               <ul>
-                <li><a href="news.html">お知らせ</a></li>
+                <li><a href="news.html">お知らせ・ブログ</a></li>
                 <li><a href="case-list.html">提案事例</a></li>
               </ul>
             </div>
