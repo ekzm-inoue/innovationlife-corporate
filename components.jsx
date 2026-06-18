@@ -5,6 +5,10 @@
 
 const D = window.IL_DATA;
 
+// 外部 URL（http/https から始まる）の場合は別タブで開く属性を返す
+const externalProps = (href) =>
+  /^https?:\/\//.test(href || '') ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+
 // ---------- Header ----------
 function ILHeader() {
   const [scrolled, setScrolled] = React.useState(false);
@@ -47,7 +51,7 @@ function ILHeader() {
               className={`il-nav__item ${n.children ? 'has-children' : ''} ${openIdx === i ? 'is-open' : ''}`}
               onMouseEnter={() => setOpenIdx(n.children ? i : -1)}
             >
-              <a href={n.href} className="il-nav__link">{n.label}</a>
+              <a href={n.href} className="il-nav__link" {...externalProps(n.href)}>{n.label}</a>
               {n.children && (
                 <div className="il-nav__dropdown" role="menu">
                   <div className="il-nav__dropdown-inner">
@@ -55,7 +59,7 @@ function ILHeader() {
                     <ul>
                       {n.children.map((c) => (
                         <li key={c.label}>
-                          <a href={c.href}>
+                          <a href={c.href} {...externalProps(c.href)}>
                             <span className="il-nav__dropdown-en">{c.eyebrow}</span>
                             <span className="il-nav__dropdown-ja">
                               {c.label}
@@ -110,7 +114,7 @@ function ILHeader() {
                     <ul className="il-mobile-nav__sub">
                       {n.children.map((c) => (
                         <li key={c.label}>
-                          <a href={c.href} onClick={() => setMobileOpen(false)}>
+                          <a href={c.href} {...externalProps(c.href)} onClick={() => setMobileOpen(false)}>
                             <span className="il-mobile-nav__sub-en">{c.eyebrow}</span>
                             <span className="il-mobile-nav__sub-ja">{c.label}</span>
                           </a>
@@ -206,7 +210,7 @@ function ILTargets({ layout = 'cards' }) {
         </div>
         <div className="il-targets" data-layout={layout}>
           {D.targets.map((t) => (
-            <a key={t.num} className="il-target-card" href={t.href || `#target-${t.num}`}>
+            <a key={t.num} className="il-target-card" href={t.href || `#target-${t.num}`} {...externalProps(t.href)}>
               <div
                 className="il-target-card__image"
                 style={{ backgroundImage: `url(${t.image})` }}
@@ -574,7 +578,7 @@ function ILFooter() {
                 <li><a href="builders.html">工務店・ハウスメーカーの方へ</a></li>
                 <li><a href="furnituremakers.html">家具メーカーの方へ</a></li>
                 <li><a href="minpaku.html">民泊業者の方へ</a></li>
-                <li><a href="kaguraku.html">カグラク（個人のお客様）</a></li>
+                <li><a href="https://lp.kaguraku.jp/" target="_blank" rel="noopener noreferrer">カグラク（個人のお客様）</a></li>
               </ul>
             </div>
             <div className="il-footer__col">

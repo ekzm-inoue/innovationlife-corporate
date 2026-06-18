@@ -95,7 +95,7 @@ window.IL_DATA = {
         '提携170以上の家具・照明ブランドから選定',
       ],
       cta: '「カグラク」サービスサイトへ',
-      href: 'kaguraku.html',
+      href: 'https://lp.kaguraku.jp/',
       image: 'assets/hero_furniture_design.png',
       overlay: 'FOR YOU',
     },
@@ -263,7 +263,7 @@ window.IL_DATA = {
         { label: '工務店・ハウスメーカーの方へ', href: 'builders.html', eyebrow: 'FOR BUILDERS' },
         { label: '家具メーカーの方へ',         href: 'furnituremakers.html', eyebrow: 'FOR FURNITUREMAKERS' },
         { label: '民泊業者の方へ',             href: 'minpaku.html',         eyebrow: 'FOR VACATION RENTALS' },
-        { label: '個人の方へ（カグラク）',     href: 'kaguraku.html', eyebrow: 'FOR INDIVIDUALS' },
+        { label: '個人の方へ（カグラク）',     href: 'https://lp.kaguraku.jp/', eyebrow: 'FOR INDIVIDUALS' },
       ],
     },
     {
