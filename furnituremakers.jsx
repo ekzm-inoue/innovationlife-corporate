@@ -6,12 +6,12 @@
 const MAKERS = {
   heroImage: 'assets/hero_furniture_design.png',
   heroTitleEn: 'For Furnituremakers',
-  heroTitleJa: '家具メーカーの方へ',
+  heroTitleJa: '家具メーカー様',
 
   lead: {
     eyebrow: 'WHY KAGURAKU',
     title: ['商品情報をご提供いただくだけで、', { em: '住宅市場にアプローチ' }],
-    body: '御社の商品をカグラクに掲載するだけで、インテリア感度の高い住宅市場の顧客層にアプローチできます。家具メーカー様のブランド価値を高めるプラットフォームです。',
+    body: 'カグラクを通して、御社の商品をインテリア感度の高い住宅市場の顧客層にアプローチ。ブランド価値を高めます。',
   },
 
   features: [

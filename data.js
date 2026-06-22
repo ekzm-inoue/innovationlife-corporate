@@ -18,8 +18,8 @@ window.IL_DATA = {
         image: 'assets/photo_hero_kitchen.png',
         alt: 'インテリアコーディネーターが住まいづくりを提案するシーン',
         category: '工務店・ハウスメーカー様へ',
-        titleHtml: '住まいに、<em>暮らし</em>を<br/>添えるパートナーへ。',
-        sub: '間取りから家具・カーテン・照明まで一括提案。工務店様の建てる空間に、暮らしを彩るインテリアを。',
+        titleHtml: '住まいに、<em>暮らし</em>を<br/>添えるパートナー。',
+        sub: '私たちは、インテリアの課題を解決し、一人ひとりの理想の暮らしを叶えるパートナーです。',
       },
       {
         image: 'assets/photo_consult_tabletop.png',
@@ -42,8 +42,8 @@ window.IL_DATA = {
     {
       num: '01',
       audience: 'FOR BUILDERS',
-      titleHtml: '<em>工務店・ハウスメーカー</em>の方へ',
-      lede: '間取りの完成は、暮らしのはじまり。建てる空間にふさわしいインテリアを、お引渡し前の最後の一手として一括ご提案いたします。',
+      titleHtml: '<em>工務店様・ハウスメーカー様</em>',
+      lede: '間取りの完成は、暮らしのはじまり。建つ家、空間にふさわしいインテリアを一括でご提案いたします。',
       points: [
         '完工前のインテリアトータルコーディネート',
         '提携家具・照明・カーテンを一括見積',
@@ -57,8 +57,8 @@ window.IL_DATA = {
     {
       num: '02',
       audience: 'FOR FURNITURE MAKERS',
-      titleHtml: '<em>家具メーカー</em>の方へ',
-      lede: '製品を「届ける」その先へ。インテリアコーディネートを通じて、メーカー様の家具をエンドユーザーの暮らしに溶け込ませる販路をご提案いたします。',
+      titleHtml: '<em>家具メーカー様</em>',
+      lede: '商品を販売する、その先へ。大切な商品を、お客様の暮らしに寄り添うかたちでご提案いたします。',
       points: [
         '全国の工務店・ハウスメーカーへ製品紹介',
         '専属コーディネーターによる提案販売',
@@ -72,8 +72,8 @@ window.IL_DATA = {
     {
       num: '03',
       audience: 'FOR VACATION RENTALS',
-      titleHtml: '<em>民泊業者</em>の方へ',
-      lede: '家具の選定・調達から、一括配送・組み立て、既存家具の撤去まで。集客と収益の両面を最大化する民泊専用の空間プロデュースを、ワンストップでご提供いたします。',
+      titleHtml: '<em>民泊業者様</em>',
+      lede: '家具の選定・調達から一括配送・組み立てまで。集客と収益を最大化する空間プロデュースをご提案いたします。',
       points: [
         'ワンストップで空間まるごとプロデュース',
         '集客に直結する「写真映え」設計',
@@ -87,8 +87,8 @@ window.IL_DATA = {
     {
       num: '04',
       audience: 'FOR INDIVIDUALS',
-      titleHtml: '<em>個人</em>のお客様へ',
-      lede: 'インテリア提案サービス「カグラク」では、LINEから気軽にご相談いただけます。理想の空間づくりを、プロのコーディネーターがトータルでサポート。',
+      titleHtml: '<em>個人</em>のお客様',
+      lede: '理想の住まいの実現をプロのインテリアコーディネーターがサポート。LINEから気軽にご相談いただけます。',
       points: [
         '提案からお引渡しまで、ワンストップ',
         'LINE友だち登録で無料の体験相談',
@@ -96,6 +96,7 @@ window.IL_DATA = {
       ],
       cta: '「カグラク」サービスサイトへ',
       href: 'https://lp.kaguraku.jp/',
+      external: true,
       image: 'assets/hero_furniture_design.png',
       overlay: 'FOR YOU',
     },
@@ -186,9 +187,9 @@ window.IL_DATA = {
       { id: '001', date: '2025.10.20', cat: 'お知らせ', title: '「アジア・ファニシング・フェア 2025」出展のお知らせ' },
     ],
     ブログ: [
-      { id: 'b001', date: '2026.06.15', cat: '事例紹介', title: '【コーディネート事例】ご予算40万円で叶える、統一感のあるトータルインテリアコーディネート' },
+      { id: 'b003', date: '2026.06.22', cat: 'コラム', title: '【インテリアのコツ】部屋がごちゃごちゃして見える原因は？「失敗しない配色の黄金ルール」' },
       { id: 'b002', date: '2026.06.15', cat: '事例紹介', title: '【施工事例】オフィス家具の納品と内装プチリノベーションで叶える、快適な商談スペース' },
-      { id: 'b003', date: '2026.06.15', cat: 'コラム', title: '【インテリアのコツ】部屋がごちゃごちゃして見える原因は？「失敗しない配色の黄金ルール」' },
+      { id: 'b001', date: '2026.06.08', cat: '事例紹介', title: '【コーディネート事例】ご予算40万円で叶える、統一感のあるトータルインテリアコーディネート' },
     ],
   },
 
@@ -260,10 +261,10 @@ window.IL_DATA = {
       label: 'サービス',
       href: 'index.html#services',
       children: [
-        { label: '工務店・ハウスメーカーの方へ', href: 'builders.html', eyebrow: 'FOR BUILDERS' },
-        { label: '家具メーカーの方へ',         href: 'furnituremakers.html', eyebrow: 'FOR FURNITUREMAKERS' },
-        { label: '民泊業者の方へ',             href: 'minpaku.html',         eyebrow: 'FOR VACATION RENTALS' },
-        { label: '個人の方へ（カグラク）',     href: 'https://lp.kaguraku.jp/', eyebrow: 'FOR INDIVIDUALS' },
+        { label: '工務店様・ハウスメーカー様', href: 'builders.html', eyebrow: 'FOR BUILDERS' },
+        { label: '家具メーカー様',         href: 'furnituremakers.html', eyebrow: 'FOR FURNITUREMAKERS' },
+        { label: '民泊業者様',             href: 'minpaku.html',         eyebrow: 'FOR VACATION RENTALS' },
+        { label: '個人のお客様（カグラクのご紹介）',     href: 'https://lp.kaguraku.jp/', external: true, eyebrow: 'FOR INDIVIDUALS' },
       ],
     },
     {

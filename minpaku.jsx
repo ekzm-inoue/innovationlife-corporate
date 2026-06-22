@@ -6,16 +6,16 @@
 const MINPAKU = {
   heroImage: 'assets/mp_hero.png',
   heroTitleEn: 'For Vacation Rentals',
-  heroTitleJa: '民泊業者の方へ',
+  heroTitleJa: '民泊業者様',
 
   lead: {
     eyebrow: 'WHY KAGURAKU',
     title: [
       '空間の価値を最大化し、',
-      { em: '運営の手間と収益' },
-      'を、ともに最適化。',
+      { em: '運営の負担と収益' },
+      'を最適化。',
     ],
-    body: 'カグラクは、家具・インテリアの選定から一括配送・組み立て・既存家具の撤去まで、民泊運営に必要な空間づくりをワンストップで請け負います。「業務効率化」と「収益の最大化」を同時に実現する、戦略的パートナーとして伴走いたします。',
+    body: 'カグラクは、家具・インテリアの選定から一括配送・組み立て・既存家具の撤去まで、民泊運営に必要な空間づくりをワンストップでご提案。「業務効率化」と「収益の最大化」を同時に実現する、戦略的パートナーとして伴走いたします。',
   },
 
   features: [
@@ -24,13 +24,14 @@ const MINPAKU = {
       eyebrow: 'ONE-STOP TURNKEY',
       title: [
         '空間まるごとを、',
+        { br: true },
         { em: 'ワンストップ' },
-        'でトータルプロデュース',
+        'でプロデュース',
       ],
       body:
-        '家具を単に販売するのではなく、壁紙・床・ラグ・照明・カーテンを含めた空間全体のコーディネートをご提案。家具の選定・調達から一括配送、現地での組み立て・設置、さらには既存家具の解体・搬出までを、当社が一括でお引き受けいたします。管理業者様・オーナー様の手配やオペレーションの煩わしさを大幅に削減いたします。',
+        '家具を販売するだけではなく、壁紙・床・ラグ・照明・カーテンを含めた空間全体のコーディネートをご提案。家具の選定・調達から一括配送、現地での組み立て・設置までを承ります。管理業者様・オーナー様の手配やオペレーションの煩わしさを大幅に削減いたします。',
       image: 'assets/mp_f1.png',
-      tags: ['既存家具の搬出', '壁・床・照明・カーテン', '一括配送・設置'],
+      tags: ['壁・床・照明・カーテン', '一括配送・設置'],
     },
     {
       num: '02',
@@ -40,7 +41,7 @@ const MINPAKU = {
         { em: '原価から最適化' },
       ],
       body:
-        '4FULの家具やサヤンサヤンのラグなど、自社グループの商材を中心にご提案することで、外部仕入れでは難しい価格・納期・在庫の柔軟性を確保。コストを抑えながらも、空間の質を落とさないご提案が可能です。',
+        '4FULグループの商品調達力を活用することで、外部仕入れでは難しい価格・納期・在庫の柔軟性を確保。コストを抑えながらも、空間の質を落とさないご提案が可能です。',
       image: 'assets/mp_f2.png',
       tags: ['4FUL', 'sayan sayan', 'グループサプライ'],
       reverse: true,
@@ -84,15 +85,14 @@ const MINPAKU = {
         body: '複数業者への手配・調整が不要に。',
       },
       {
-        kpi: '+',
-        unit: '人',
-        big: '2〜4',
+        kpi: '収容人数UP',
+        unit: '',
         label: '1室あたりの収容人数を拡張',
-        body: 'バンクベッド／造作家具の活用で。',
+        body: 'バンクベッド／造作家具の活用。',
       },
       {
-        kpi: 'CVR',
-        unit: '↑',
+        kpi: '予約率向上',
+        unit: '',
         label: '写真映えする空間で予約率向上',
         body: 'プラットフォーム露出に最適化。',
       },
@@ -121,8 +121,8 @@ const MINPAKU = {
       },
       {
         num: '04',
-        title: '搬出・設置',
-        body: '既存家具の解体・搬出から、新規家具の一括配送・組み立て・設置まで当社で対応。',
+        title: '設置・組み立て',
+        body: '新規家具の一括配送・組み立て・設置まで当社で対応。',
       },
       {
         num: '05',
@@ -177,11 +177,11 @@ function MinpakuBreadcrumb() {
 }
 
 function renderRich(arr) {
-  return arr.map((p, i) =>
-    typeof p === 'string'
-      ? <React.Fragment key={i}>{p}</React.Fragment>
-      : <em key={i}>{p.em}</em>
-  );
+  return arr.map((p, i) => {
+    if (typeof p === 'string') return <React.Fragment key={i}>{p}</React.Fragment>;
+    if (p.br) return <br key={i} />;
+    return <em key={i}>{p.em}</em>;
+  });
 }
 
 function MinpakuLead() {
@@ -245,7 +245,7 @@ function MinpakuMetrics() {
                 {it.big ? (
                   <><span className="kpi">{it.kpi}</span><span className="big">{it.big}</span><span className="unit">{it.unit}</span></>
                 ) : (
-                  <><span className="kpi-text">{it.kpi}</span><span className="unit">{it.unit}</span></>
+                  <><span className={`kpi-text${it.kpi && it.kpi.length > 4 ? ' is-long' : ''}`}>{it.kpi}</span><span className="unit">{it.unit}</span></>
                 )}
               </div>
               <h4 className="il-mp-metric__label">{it.label}</h4>
@@ -343,7 +343,8 @@ function MinpakuPage() {
       <MinpakuFeatures />
       <MinpakuMetrics />
       <MinpakuFlow />
-      <MinpakuCasesCTA />
+      {/* 提案事例：コンテンツ準備中のため一時的に非表示。掲載時はこの行のコメントを外す */}
+      {/* <MinpakuCasesCTA /> */}
       <MinpakuDualCTA />
       <ILFooter />
     </>

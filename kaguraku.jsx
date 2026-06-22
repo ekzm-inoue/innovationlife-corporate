@@ -456,7 +456,8 @@ function KaguraKuPage() {
       <KgAbout />
       <KgFeatures />
       <LineCTA caption="プロのご提案を、無料でお試しいただけます。" />
-      <KgCases />
+      {/* 提案事例：コンテンツ準備中のため一時的に非表示。掲載時はこの行のコメントを外す */}
+      {/* <KgCases /> */}
       <KgCoord />
       <LineCTA caption="お悩みやご要望を、LINEでお気軽にお話しください。" />
       <KgCategories />

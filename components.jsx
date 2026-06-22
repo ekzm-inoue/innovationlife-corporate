@@ -5,16 +5,23 @@
 
 const D = window.IL_DATA;
 
-// 外部 URL（http/https から始まる）の場合は別タブで開く属性を返す
-const externalProps = (href) =>
-  /^https?:\/\//.test(href || '') ? { target: '_blank', rel: 'noopener noreferrer' } : {};
-
 // ---------- Header ----------
 function ILHeader() {
   const [scrolled, setScrolled] = React.useState(false);
   const [openIdx, setOpenIdx] = React.useState(-1);     // desktop hovered submenu
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [mobileSub, setMobileSub] = React.useState(-1); // mobile accordion expanded
+  const closeTimer = React.useRef(null);
+
+  // Hover-intent: keep the dropdown open while the cursor is over the
+  // trigger OR the dropdown itself; only close after a short grace period
+  // so crossing the gap between them doesn't dismiss the menu.
+  const openMenu = (i) => { clearTimeout(closeTimer.current); setOpenIdx(i); };
+  const scheduleClose = () => {
+    clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => setOpenIdx(-1), 180);
+  };
+  React.useEffect(() => () => clearTimeout(closeTimer.current), []);
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 48);
@@ -44,22 +51,27 @@ function ILHeader() {
         </a>
 
         {/* Desktop nav */}
-        <nav className="il-nav" onMouseLeave={() => setOpenIdx(-1)}>
+        <nav className="il-nav" onMouseLeave={scheduleClose}>
           {D.nav.map((n, i) => (
             <div
               key={n.label}
               className={`il-nav__item ${n.children ? 'has-children' : ''} ${openIdx === i ? 'is-open' : ''}`}
-              onMouseEnter={() => setOpenIdx(n.children ? i : -1)}
+              onMouseEnter={() => openMenu(n.children ? i : -1)}
             >
-              <a href={n.href} className="il-nav__link" {...externalProps(n.href)}>{n.label}</a>
+              <a href={n.href} className="il-nav__link">{n.label}</a>
               {n.children && (
-                <div className="il-nav__dropdown" role="menu">
+                <div
+                  className="il-nav__dropdown"
+                  role="menu"
+                  onMouseEnter={() => openMenu(i)}
+                  onMouseLeave={scheduleClose}
+                >
                   <div className="il-nav__dropdown-inner">
                     <p className="il-nav__dropdown-eyebrow">SERVICES</p>
                     <ul>
                       {n.children.map((c) => (
                         <li key={c.label}>
-                          <a href={c.href} {...externalProps(c.href)}>
+                          <a href={c.href} target={c.external ? '_blank' : undefined} rel={c.external ? 'noopener noreferrer' : undefined}>
                             <span className="il-nav__dropdown-en">{c.eyebrow}</span>
                             <span className="il-nav__dropdown-ja">
                               {c.label}
@@ -114,7 +126,7 @@ function ILHeader() {
                     <ul className="il-mobile-nav__sub">
                       {n.children.map((c) => (
                         <li key={c.label}>
-                          <a href={c.href} {...externalProps(c.href)} onClick={() => setMobileOpen(false)}>
+                          <a href={c.href} target={c.external ? '_blank' : undefined} rel={c.external ? 'noopener noreferrer' : undefined} onClick={() => setMobileOpen(false)}>
                             <span className="il-mobile-nav__sub-en">{c.eyebrow}</span>
                             <span className="il-mobile-nav__sub-ja">{c.label}</span>
                           </a>
@@ -205,12 +217,12 @@ function ILTargets({ layout = 'cards' }) {
             家づくりに<em>+α</em>の価値を。
           </h2>
           <p className="il-section-lede">
-            工務店・家具メーカー・民泊事業者から個人のお客様まで。<br/>住空間に関わるすべての方へ、インテリアのご提案から家具の調達・配送・設置までをワンストップでサポートします。
+            工務店様・家具メーカー様・民泊事業者様から、もちろん個人のお客様も。<br/>住空間に関わるすべての方へ、インテリアのご提案から家具の調達・配送・設置までをワンストップでサポートします。
           </p>
         </div>
         <div className="il-targets" data-layout={layout}>
           {D.targets.map((t) => (
-            <a key={t.num} className="il-target-card" href={t.href || `#target-${t.num}`} {...externalProps(t.href)}>
+            <a key={t.num} className="il-target-card" href={t.href || `#target-${t.num}`} target={t.external ? '_blank' : undefined} rel={t.external ? 'noopener noreferrer' : undefined}>
               <div
                 className="il-target-card__image"
                 style={{ backgroundImage: `url(${t.image})` }}
@@ -575,10 +587,10 @@ function ILFooter() {
             <div className="il-footer__col">
               <p className="il-footer__col-head">SERVICES</p>
               <ul>
-                <li><a href="builders.html">工務店・ハウスメーカーの方へ</a></li>
-                <li><a href="furnituremakers.html">家具メーカーの方へ</a></li>
-                <li><a href="minpaku.html">民泊業者の方へ</a></li>
-                <li><a href="https://lp.kaguraku.jp/" target="_blank" rel="noopener noreferrer">カグラク（個人のお客様）</a></li>
+                <li><a href="builders.html">工務店様・ハウスメーカー様</a></li>
+                <li><a href="furnituremakers.html">家具メーカー様</a></li>
+                <li><a href="minpaku.html">民泊業者様</a></li>
+                <li><a href="https://lp.kaguraku.jp/" target="_blank" rel="noopener noreferrer">個人のお客様（カグラクのご紹介）</a></li>
               </ul>
             </div>
             <div className="il-footer__col">
