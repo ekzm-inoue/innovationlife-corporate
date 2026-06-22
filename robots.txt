@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# 検索結果に出したくないページ
+Disallow: /contact-corporate/thanks.html
+Disallow: /Innovation Life - Top Page.html
+Disallow: /Innovation Life - Top Page-print.html
+Disallow: /index-standalone.html
+
+Sitemap: https://kaguraku.jp/sitemap.xml
