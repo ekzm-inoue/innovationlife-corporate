@@ -290,7 +290,7 @@ function BuilderVideo() {
         </div>
 
         <div className="il-download">
-          <a className="il-download__btn" href="#download">
+          <a className="il-download__btn" href="https://na2.hubs.ly/H06dt1_0" target="_blank" rel="noopener noreferrer">
             {BUILDERS.download.label}
           </a>
         </div>
