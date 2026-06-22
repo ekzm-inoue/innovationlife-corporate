@@ -6,7 +6,7 @@
 
 const CC_INFO = {
   heroImage: 'assets/hero_furniture_design.png',
-  heroTitleJa: '工務店・家具メーカー様 お問い合わせ',
+  heroTitleJa: 'お問い合わせ',
 
   aside: {
     eyebrow: 'FOR PARTNERS',
@@ -47,9 +47,7 @@ function CCBreadcrumb() {
       <div className="il-container">
         <a href="index.html">HOME</a>
         <span>／</span>
-        <a href="index.html#contact">お問い合わせ</a>
-        <span>／</span>
-        工務店・家具メーカー様
+        お問い合わせ
       </div>
     </div>
   );
