@@ -4947,3 +4947,46 @@ html, body { background: var(--il-cream); color: var(--il-ink); }
 section[id] { scroll-margin-top: 80px; }
 
 .twk-panel { font-family: "Noto Sans JP", sans-serif !important; }
+
+/* ---------- Contact completion (thanks) page ---------- */
+.il-thanks__main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: clamp(140px, 22vh, 220px) 24px clamp(80px, 14vh, 140px);
+  background: var(--il-cream);
+}
+.il-thanks__inner {
+  max-width: 640px;
+  text-align: center;
+}
+.il-thanks__title {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 500;
+  font-size: clamp(26px, 4vw, 40px);
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  color: var(--il-ink);
+  margin: 20px 0 0;
+  text-wrap: balance;
+}
+.il-thanks__rule {
+  width: 40px;
+  height: 1px;
+  background: var(--il-green);
+  margin: 32px auto;
+}
+.il-thanks__body {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: clamp(15px, 1.6vw, 17px);
+  line-height: 2.0;
+  color: var(--il-ink-soft);
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+.il-thanks__actions {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+}

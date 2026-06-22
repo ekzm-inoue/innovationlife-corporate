@@ -194,8 +194,8 @@ function MakerFlow() {
         </div>
 
         <div className="il-download">
-          <a className="il-download__btn" href="#download">
-            {MAKERS.download.label}はこちら
+          <a className="il-download__btn" href="https://na2.hubs.ly/H06dt1t0" target="_blank" rel="noopener noreferrer">
+            {MAKERS.download.label}
           </a>
         </div>
       </div>
