@@ -43,6 +43,7 @@ function ILHeader() {
   }, [mobileOpen]);
 
   return (
+    <>
     <header className={`il-header ${scrolled ? 'is-scrolled' : ''}`}>
       <div className="il-header__inner">
         <a className="il-logo" href="index.html">
@@ -103,6 +104,7 @@ function ILHeader() {
           </button>
         </div>
       </div>
+      </header>
 
       {/* Mobile slide-in menu */}
       <div className={`il-mobile-nav ${mobileOpen ? 'is-open' : ''}`} aria-hidden={!mobileOpen}>
@@ -156,7 +158,7 @@ function ILHeader() {
           </a>
         </div>
       </div>
-    </header>
+    </>
   );
 }
 
