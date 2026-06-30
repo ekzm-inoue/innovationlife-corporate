@@ -125,7 +125,11 @@ const NEWS_ARTICLES = {
         { src: 'assets/blog004_2.jpg', caption: '会議室：ブルー・水色・グレーのチェアでトーンを揃えたコーディネート' },
         { src: 'assets/blog004_3.jpg', caption: '曲面の窓に沿った、ゆとりのある休憩スペース' },
       ] },
-      { type: 'p', text: '家具選びや色合わせにお悩みの際は、カグラクのLINEからお気軽にご相談ください。コーディネーターが、あなたの空間にぴったりのご提案をいたします。' },
+      { type: 'p', parts: [
+        '家具選びや色合わせにお悩みの際は、カグラクの',
+        { href: 'https://page.line.me/578gpbjx', text: 'LINE' },
+        'からお気軽にご相談ください。コーディネーターが、あなたの空間にぴったりのご提案をいたします。',
+      ] },
     ],
   },
   'b003': {
@@ -206,7 +210,17 @@ function ArticleBody() {
       {NEWS_ITEM.body.map((b, i) => {
         if (b.type === 'h2') return <h2 key={i}>{b.text}</h2>;
         if (b.type === 'h3') return <h3 key={i} style={{ fontSize: '1.05em', fontWeight: 700, margin: '1.6em 0 0.5em' }}>{b.text}</h3>;
-        if (b.type === 'p') return <p key={i}>{b.text}</p>;
+        if (b.type === 'p') return (
+          <p key={i}>
+            {b.parts
+              ? b.parts.map((part, j) =>
+                  typeof part === 'string'
+                    ? <React.Fragment key={j}>{part}</React.Fragment>
+                    : <a key={j} href={part.href} target="_blank" rel="noopener noreferrer">{part.text}</a>
+                )
+              : b.text}
+          </p>
+        );
         if (b.type === 'ul') return (
           <ul key={i} className="il-article__list">
             {b.items.map((it, j) => <li key={j}>{it}</li>)}
