@@ -241,7 +241,7 @@ window.IL_DATA = {
     'assets/partner_asahi.png',
     'assets/partner_sue.png',
     'assets/partner_chiyoda.png',
-    'assets/partner_hotta.png',
+    'assets/partner_hotta_n.png',
     'assets/partner_fourful.png',
   ],
 
@@ -273,6 +273,7 @@ window.IL_DATA = {
       children: [
         { label: '代表メッセージ',         href: 'company.html#message', eyebrow: 'MESSAGE FROM CEO' },
         { label: '会社概要',               href: 'company.html#profile', eyebrow: 'COMPANY PROFILE' },
+        { label: 'パートナー一覧',         href: 'company.html#partners', eyebrow: 'PARTNERS' },
         { label: '4FULグループについて',   href: 'company.html#group',   eyebrow: 'OUR GROUP' },
       ],
     },
