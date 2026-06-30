@@ -306,6 +306,12 @@ function ILPartners() {
             <img key={i} src={p} alt="Partner logo" />
           ))}
         </div>
+        <div style={{ textAlign: 'center', marginTop: 32 }}>
+          <a className="il-btn il-btn--ghost" href="company.html#partners">
+            パートナー一覧を見る
+            <span className="il-arrow"></span>
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -600,6 +606,7 @@ function ILFooter() {
               <ul>
                 <li><a href="company.html#message">代表メッセージ</a></li>
                 <li><a href="company.html#profile">会社概要</a></li>
+                <li><a href="company.html#partners">パートナー一覧</a></li>
                 <li><a href="company.html#group">4FULグループについて</a></li>
               </ul>
             </div>

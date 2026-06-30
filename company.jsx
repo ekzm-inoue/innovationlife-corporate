@@ -60,6 +60,19 @@ const COMPANY = {
     },
   ],
 
+  furnitureMakers: [
+    { name: '4FUL株式会社', url: 'https://4ful.co.jp/' },
+    { name: '株式会社関家具', url: 'https://www.sekikagu.co.jp/' },
+    { name: 'モリタインテリア工業株式会社', url: 'https://www.moritanet.com/' },
+    { name: '株式会社チヨダコーポレーション', url: 'https://chiyoda-corp.co.jp/' },
+    { name: '株式会社フジシ', url: 'http://fujishi.com/' },
+    { name: '株式会社ミキモク', url: 'http://www.mikimoku.co.jp/' },
+    { name: '株式会社堀田木工所', url: 'https://hotta-woody.com/' },
+    { name: '株式会社すえ木工', url: 'https://www.suemokko.co.jp/' },
+    { name: '有限会社カイバラ工芸', url: 'https://kaibarakougei.com/' },
+    { name: '株式会社アサヒ', url: 'http://www.asahi-mok.co.jp/' },
+  ],
+
   related: [
     {
       num: '01',
@@ -192,6 +205,31 @@ function Profile() {
   );
 }
 
+// ---------- Partners list ----------
+function PartnersList() {
+  return (
+    <section id="partners" className="il-section">
+      <div className="il-container">
+        <div className="il-profile-head">
+          <h2 className="il-profile-head__title">
+            <small>PARTNERS</small>
+            パートナー一覧
+          </h2>
+          <span className="il-profile-head__meta">FURNITURE MAKERS</span>
+        </div>
+
+        <ul className="il-maker-list">
+          {COMPANY.furnitureMakers.map((m) => (
+            <li className="il-maker-list__item" key={m.name}>
+              <a href={m.url} target="_blank" rel="noopener noreferrer">{m.name}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 // ---------- 4FUL Group ----------
 function FulGroup() {
   return (
@@ -302,6 +340,27 @@ function FinalBand() {
 
 // ---------- Page ----------
 function CompanyPage() {
+  React.useEffect(() => {
+    // React renders after the browser has already processed the URL hash,
+    // so native anchor scrolling fails on cross-page links (e.g. index.html#partners).
+    // Re-run the scroll once the target section exists in the DOM.
+    if (!window.location.hash) return;
+    const id = window.location.hash.slice(1);
+    const jump = () => {
+      const el = document.getElementById(id);
+      if (!el) return false;
+      const top = el.getBoundingClientRect().top + window.pageYOffset - 80;
+      window.scrollTo(0, top);
+      return true;
+    };
+    // Re-apply over ~1.5s so late layout shifts (image loads, fonts) don't
+    // leave the target off-screen. Cross-page hash links land reliably this way.
+    const delays = [0, 60, 150, 300, 500, 800, 1200, 1600];
+    const timers = delays.map((d) => setTimeout(jump, d));
+    window.addEventListener('load', jump);
+    return () => { timers.forEach(clearTimeout); window.removeEventListener('load', jump); };
+  }, []);
+
   return (
     <>
       <ILHeader />
@@ -310,6 +369,7 @@ function CompanyPage() {
       <LeadBand />
       <Greeting />
       <Profile />
+      <PartnersList />
       <FulGroup />
       <FinalBand />
       <ILFooter />

@@ -1506,12 +1506,25 @@ html, body { background: var(--il-cream); color: var(--il-ink); }
   padding: 40px 0;
 }
 .il-partners img {
-  height: 34px;
+  height: 66px;
   width: auto;
   opacity: 1;
   transition: opacity 240ms cubic-bezier(.22,.61,.36,1);
 }
 .il-partners img:hover { opacity: 0.7; }
+.il-partners__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  color: var(--il-green);
+  text-decoration: none;
+  transition: gap 240ms cubic-bezier(.22,.61,.36,1);
+}
+.il-partners__link:hover { gap: 18px; }
 
 /* ---------- Big-mark scroller ---------- */
 .il-marquee {
@@ -1949,6 +1962,96 @@ html, body { background: var(--il-cream); color: var(--il-ink); }
   border-top: 1px solid currentColor;
   border-right: 1px solid currentColor;
   transform: rotate(45deg);
+}
+
+/* ---------- Partner maker list ---------- */
+.il-maker-list {
+  list-style: disc;
+  margin: 0;
+  padding-left: 22px;
+}
+.il-maker-list__item {
+  margin: 0;
+  padding: 0;
+  color: var(--il-stone);
+}
+.il-maker-list__item + .il-maker-list__item {
+  margin-top: 8px;
+}
+.il-maker-list__item a {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  color: var(--il-green);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 200ms ease;
+}
+.il-maker-list__item a:hover { opacity: 0.7; }
+
+/* ---------- Partner list table (legacy) ---------- */
+.il-partner-table__caption {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  color: var(--il-ink);
+  margin: 0 0 12px;
+}
+.il-partner-table {
+  border-top: 1px solid var(--il-ink);
+}
+.il-partner-table__head {
+  display: none;
+}
+.il-partner-table__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px 48px;
+  padding: 20px 4px;
+  border-bottom: 1px solid var(--il-linen);
+}
+.il-partner-table__name {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--il-ink);
+}
+.il-partner-table__link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  color: var(--il-green);
+  text-decoration: none;
+  transition: gap 240ms cubic-bezier(.22,.61,.36,1);
+  overflow-wrap: anywhere;
+}
+.il-partner-table__link a:hover { gap: 18px; }
+@media (min-width: 768px) {
+  .il-partner-table__head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    padding: 0 4px 14px;
+  }
+  .il-partner-table__head span {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--il-stone);
+  }
+  .il-partner-table__row {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 48px;
+  }
 }
 
 /* ---------- Breadcrumb ---------- */
