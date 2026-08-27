@@ -3,6 +3,19 @@
 // Exposes window.IL_DATA for all components to read.
 // ============================================================
 
+// Standalone-export resolver: maps an asset path to its inlined blob URL
+// when the page has been bundled (window.__resources present); otherwise
+// returns the original path unchanged. Safe no-op on normal pages.
+window.ILR = function (p) {
+  return (window.__resources && typeof p === 'string' && window.__resources[p]) || p;
+};
+window.ILRemap = function (o) {
+  if (typeof o === 'string') return window.ILR(o);
+  if (Array.isArray(o)) { for (let i = 0; i < o.length; i++) o[i] = window.ILRemap(o[i]); return o; }
+  if (o && typeof o === 'object') { for (const k in o) o[k] = window.ILRemap(o[k]); return o; }
+  return o;
+};
+
 window.IL_DATA = {
   brand: {
     nameJa: 'イノベーションライフ株式会社',
@@ -88,15 +101,14 @@ window.IL_DATA = {
       num: '04',
       audience: 'FOR INDIVIDUALS',
       titleHtml: '<em>個人</em>のお客様',
-      lede: '理想の住まいの実現をプロのインテリアコーディネーターがサポート。LINEから気軽にご相談いただけます。',
+      lede: 'かんたんな質問に答えるだけで、あなたにぴったりのインテリアスタイルとアイテムをご提案いたします。',
       points: [
         '提案からお引渡しまで、ワンストップ',
         'LINE友だち登録で無料の体験相談',
         '提携170以上の家具・照明ブランドから選定',
       ],
-      cta: '「カグラク」サービスサイトへ',
-      href: 'https://lp.kaguraku.jp/',
-      external: true,
+      cta: '「カグラク」サービスページへ',
+      href: 'kaguraku.html',
       image: 'assets/hero_furniture_design.png',
       overlay: 'FOR YOU',
     },
@@ -265,7 +277,7 @@ window.IL_DATA = {
         { label: '工務店様・ハウスメーカー様', href: 'builders.html', eyebrow: 'FOR BUILDERS' },
         { label: '家具メーカー様',         href: 'furnituremakers.html', eyebrow: 'FOR FURNITUREMAKERS' },
         { label: '民泊業者様',             href: 'minpaku.html',         eyebrow: 'FOR VACATION RENTALS' },
-        { label: '個人のお客様（カグラクのご紹介）',     href: 'https://lp.kaguraku.jp/', external: true, eyebrow: 'FOR INDIVIDUALS' },
+        { label: '個人のお客様（カグラクのご紹介）',     href: 'kaguraku.html', eyebrow: 'FOR INDIVIDUALS' },
       ],
     },
     {
@@ -284,3 +296,6 @@ window.IL_DATA = {
     { label: 'よくあるご質問', href: 'faq.html' },
   ],
 };
+
+// Remap asset paths to inlined blobs when bundled (no-op otherwise).
+window.ILRemap(window.IL_DATA);
