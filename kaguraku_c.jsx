@@ -1,7 +1,6 @@
 // ============================================================
-// Innovation Life — SESAME ブランド紹介LP — /kaguraku/
-// AIインテリア診断を主役に、SESAMEブランド訴求を組み合わせた集客導線。
-// Reuses the corporate design system (.il-k2-* & shared components).
+// Innovation Life — SESAME ブランド紹介LP（C案 / kaguraku_c.html）
+// 広告からのランディング用。ヒーローコピーは C バリアント固定。
 // ============================================================
 
 const S_LINE_URL = 'https://lin.ee/5p0dQyV';
@@ -10,11 +9,11 @@ const SESAME = {
   heroImage: 'assets/s_hero_main.jpg',
   heroVariants: [
     {
-      id: 'B',
-      label: 'B｜課題解決・高コスパ',
-      titleHtml: '狭くても、<br /><em>あきらめない<br />理想のお部屋。</em>',
+      id: 'C',
+      label: 'C｜失敗回避・センス不安解消',
+      titleHtml: 'AIとつくる、<br /><em>失敗しない部屋づくり。</em>',
       lead: '無料AIインテリア診断実施中。',
-      sub: 'AIがあなたの好みを分析し、コスパ抜群の家具とコーディネートをご提案。LINEでサクッと、あなただけの「正解」が見つかります。',
+      sub: '「センスに自信がない」「家具選びで失敗したくない」そんな悩みをAIが解決。あなたにぴったりのスタイルと家具をご提案します。',
     },
   ],
   heroBadges: [
